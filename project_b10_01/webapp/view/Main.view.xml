@@ -1,0 +1,193 @@
+<mvc:View controllerName="projectb1001.controller.Main"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m"
+    xmlns="sap.ui.table">
+    <m:Page id="page" title="타이틀">
+        <m:content>
+            <m:VBox>
+			<m:Input id="_IDinput" value="여기다 쓰는 내용이 버튼 누르면 나와요"/>
+			<m:Text text=""/>
+            <m:Text id="_IDGenText1" text=""/>
+            <m:Text text=""/>
+            <m:Button type="Emphasized" id="_IDGenButton1" icon="sap-icon://touch" text="OnTheText" press=".onHelloWorld"/>
+            <m:Button type="Emphasized" id="_IDGenButton2" icon="sap-icon://touch" text="Alert!" press=".onPressButton"/>
+            <m:Text text=""/>
+            <!-- <Table
+                id="friendsTable"
+                width="auto">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title
+                            text="그룹"
+                            titleStyle="H3"
+                            level="H3"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="User Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="First Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Last Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Age"/>
+                    </Column>
+                    <Column>
+                        <Text text="Quotes"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="MJH"/>
+                        </cells>
+                        <cells>
+                            <Text text="재현"/>
+                        </cells>
+                        <cells>
+                            <Text text="문"/>
+                        </cells>
+                        <cells>
+                            <Text text="24"/>
+                        </cells>
+                        <cells>
+                            <Text text="I Love"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table> -->
+			<Table
+				rows="{/ProductCollection}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar style="Clear">
+						<m:Title id="title" text="Products"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="11rem">
+						<m:Label text="Product Name" />
+						<template>
+							<m:Text text="{Name}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="11rem">
+						<m:Label text="Product Id" />
+						<template>
+							<m:Input value="{ProductId}"/>
+						</template>
+					</Column>
+					<Column width="6rem" hAlign="End">
+						<m:Label text="Quantity" />
+						<template>
+							<m:Label text="{Quantity}" />
+						</template>
+					</Column>
+					<Column width="9rem">
+						<m:Label text="Status" />
+						<template>
+							<m:ObjectStatus text="{Status}" state="{
+								path: 'Available',
+								formatter: '.formatAvailableToObjectState'
+							}"/>
+						</template>
+					</Column>
+					<Column width="9rem">
+						<m:Label text="Price" />
+						<template>
+							<u:Currency value="{Price}" currency="{CurrencyCode}"/>
+						</template>
+					</Column>
+					<Column width="12rem">
+						<m:Label text="Supplier" />
+						<template>
+							<m:ComboBox value="{SupplierName}" items="{/Suppliers}">
+								<c:Item text="{Name}"/>
+							</m:ComboBox>
+						</template>
+					</Column>
+					<Column width="9rem">
+						<m:Label text="Image" />
+						<template>
+							<m:Link text="Show Image" href="{ProductPicUrl}" target="_blank"/>
+						</template>
+					</Column>
+					<Column width="9rem">
+						<m:Label text="Details" />
+						<template>
+							<m:Button text="Show Details" press="handleDetailsPress"/>
+						</template>
+					</Column>
+					<Column width="7rem">
+						<m:Label text="Heavy Weight" />
+						<template>
+							<m:CheckBox selected="{
+								path: 'Heavy',
+								type: 'sap.ui.model.type.String'
+							}"/>
+						</template>
+					</Column>
+					<Column width="12rem">
+						<m:Label text="Main Category" />
+						<template>
+							<m:Select selectedKey="{Category}" items="{/Categories}">
+								<c:Item text="{Name}" key="{Name}"/>
+							</m:Select>
+						</template>
+					</Column>
+					<Column width="12rem">
+						<m:Label text="Additional Categories" />
+						<template>
+							<m:MultiInput
+								tokenUpdate="updateMultipleSelection"
+								value="{AdditionalCategory}"
+								tokens="{AdditionalCategoriesSelection}"
+								suggestionItems="{
+									path: '/Categories',
+									sorter: { path: 'Name' }
+								}"
+								showValueHelp="false"
+								>
+								<m:tokens>
+									<m:Token key="{Key}" text="{Name}"/>
+								</m:tokens>
+								<m:suggestionItems>
+									<c:Item key="{ProductId}" text="{Name}" />
+								</m:suggestionItems>
+							</m:MultiInput>
+						</template>
+					</Column>
+					<Column width="6rem" hAlign="Center">
+						<m:Label text="Status" />
+						<template>
+							<c:Icon src="{
+								path: 'Available',
+								formatter: '.formatAvailableToIcon'
+							}"/>
+						</template>
+					</Column>
+					<Column width="11rem" hAlign="Center">
+						<m:Label text="Delivery Date" />
+						<template>
+							<m:DatePicker value="{
+								path: 'DeliveryDate',
+								type: 'sap.ui.model.type.Date',
+								formatOptions: {source: {pattern: 'timestamp'}}
+							}"/>
+						</template>
+					</Column>
+				</columns>
+			</Table>
+            </m:VBox>
+        </m:content>
+    </m:Page>
+</mvc:View>
