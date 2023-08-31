@@ -1,0 +1,28 @@
+<mvc:View controllerName="projectb1003.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core ="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <VBox>
+            <Panel headerText="계산기">
+                <FlexBox
+                    height="100px"
+                    alignItems="Start"
+                    justifyContent="Start">
+                <Input id="inputId"></Input>
+                <Select width="60px" selectedKey="plus" id="selectId">
+                    <items>
+                        <core:Item key="plus" text="+" />
+                        <core:Item key="minus" text="-" />
+                        <core:Item key="multiple" text="*" />
+                        <core:Item key="division" text="/" />
+                    </items>
+                </Select>
+                <Input id="inputId2" change="onChange"></Input>
+                <Button type="Emphasized" id="calcButton" icon="sap-icon://touch" text="계산 실행" press=".onCalc"/>
+                </FlexBox>
+                <Text id="textId" />
+            </Panel>
+        </VBox>
+    </Page>
+</mvc:View>
