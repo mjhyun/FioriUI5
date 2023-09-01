@@ -1,0 +1,51 @@
+<mvc:View controllerName="projectb1004.controller.main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <t:Table
+				id = "tableId"
+				rows="{/list}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+                        <ToolbarSpacer />
+                        <Button text="Add" icon="sap-icon://add" press=".onAdd" />
+                        <Button text="Delete" icon="sap-icon://delete" press=".onDel" />
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+                    <t:Column width="100%">
+						<Label text="Name" />
+						<t:template>
+							<Input value="{Name}" id="inputName" />
+						</t:template>
+					</t:Column>
+					<t:Column width="100%">
+						<Label text="Address" />
+						<t:template>
+							<Input id="inputAddress" />
+						</t:template>
+					</t:Column>
+					<t:Column width="100%">
+						<Label text="Phone" />
+						<t:template>
+							<Input id="inputPhone" />
+						</t:template>
+					</t:Column>
+                    <t:Column width="100%">
+						<Label text="Department" />
+						<t:template>
+							<Input id="inputDep" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+        </content>
+    </Page>
+</mvc:View>
