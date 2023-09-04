@@ -1,0 +1,17 @@
+<mvc:View controllerName="projectb1005.controller.HelloPanel"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+        <Panel expandable="true" expanded="true">
+            <headerToolbar>
+                <Toolbar>
+                    <Text text="Panel Test" />
+                    <ToolbarSpacer />
+                    <Button text="Button"/>
+                </Toolbar>
+            </headerToolbar>
+
+            <Input />
+            <Button text="Hello Panel Button" press=".onShowHello" />
+        </Panel>
+</mvc:View>

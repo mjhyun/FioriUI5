@@ -1,10 +1,14 @@
 <mvc:View controllerName="projectb1003.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
+    xmlns:t="sap.ui.table"
     xmlns:core ="sap.ui.core">
     <Page id="page" title="{i18n>title}">
         <VBox>
-            <Panel headerText="계산기">
+            <Panel headerText="{Main>/list/0/home}">
+            <!-- Element Binding -->
+                <Input binding="{Main>/}" value="{Main>/title}" />
+
                 <FlexBox
                     height="100px"
                     alignItems="Start"
@@ -22,6 +26,46 @@
                 <Button type="Emphasized" id="calcButton" icon="sap-icon://touch" text="계산 실행" press=".onCalc"/>
                 </FlexBox>
                 <Text id="textId" />
+
+            <!-- Table에 하는건 Aggregation Binding or List Binding or 배열 바인딩 -->
+                <t:Table
+				rows="{Main>/list}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+                    <t:Column width="11rem">
+						<Label text="num1" />
+						<t:template>
+							<Text text="{Main>num1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="operator" />
+						<t:template>
+							<Text text="{Main>operator}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="num2" />
+						<t:template>
+							<Text text="{Main>num2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    <t:Column width="11rem">
+						<Label text="result" />
+						<t:template>
+							<Text text="{Main>result}" wrapping="false" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
             </Panel>
         </VBox>
     </Page>

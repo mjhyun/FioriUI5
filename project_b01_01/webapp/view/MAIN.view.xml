@@ -1,0 +1,43 @@
+<mvc:View
+  controllerName="projectb0101.controller.MAIN"
+  xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:t="sap.ui.table"
+>
+  <Page id="page" title="궁극의 이지선다">
+    <VBox id="box1">
+      <!-- <Button id="_IDGenButton1" icon="sap-icon://touch" text="버튼눌러봐" press=".onInit"
+        type="Emphasized"  />-->
+
+      <Button id="my_button" text="MyButton" press=".onClick" type="Emphasized"  />
+      <Button id="2ndBT" text="Input이 나와요" type="Critical" press=".onPress" />
+      <Text id="idText" text="진짜 누를거야?" />
+
+      <Input id="inputs" value="지우고 값을 넣어주세요" />
+
+
+			<t:Table
+				rows="{/ProductCollection}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column width="11rem">
+						<Label text="Product Name" />
+						<t:template>
+							<Text text="{Name}" wrapping="false" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+
+    </VBox>
+  </Page>
+</mvc:View>
