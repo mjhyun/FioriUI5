@@ -1,0 +1,70 @@
+<mvc:View controllerName="practiceb1001.controller.main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout" xmlns:core ="sap.ui.core" xmlns:t="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <l:HorizontalLayout>
+        <Input id="num1" type="Number" />
+        <Select id="opt" width="70px" items="{path:'/operators'}">
+            <items>
+            <core:Item text="{operatorText}"></core:Item>
+            </items>
+        </Select>
+        <Input id="num2" type="Number" />
+        <Button type="Emphasized" id="btn" icon="sap-icon://touch" text="계산 실행" press=".onCalc"/>
+        <Text id="textId" />
+    </l:HorizontalLayout>
+
+        <t:Table
+    id="idTable"
+    rows="{/list}"
+    selectionMode="None"
+    noData="계산 결과가 없습니다"
+    rowActionCount="1"
+    visibleRowCount="7"
+    paste="onPaste"
+    ariaLabelledBy="title">
+    <t:extension>
+        <OverflowToolbar style="Clear">
+            <Title id="title" text="Results"/>
+        </OverflowToolbar>
+    </t:extension>
+    <t:columns>
+    <t:Column>
+    </t:Column>
+        <t:Column width="100%">
+            <Label text="Number1" />
+            <t:template>
+                <Text text="{num1}" wrapping="false" />
+            </t:template>
+        </t:Column>
+        <t:Column width="100%">
+            <Label text="operator" />
+            <t:template>
+                <Text text="{operator}" wrapping="false" />
+            </t:template>
+        </t:Column>
+        <t:Column width="100%">
+            <Label text="Number2" />
+            <t:template>
+                <Text text="{num2}" wrapping="false" />
+            </t:template>
+        </t:Column>
+        <t:Column width="100%">
+            <Label text="Result" />
+            <t:template>
+                <Text text="{result}" wrapping="false" />
+            </t:template>
+        </t:Column>
+    </t:columns>
+    <t:rowActionTemplate>
+    <t:RowAction>
+        <t:items>
+            <t:RowActionItem type="Delete" press="onDel" />
+        </t:items>
+    </t:RowAction>
+</t:rowActionTemplate>
+</t:Table>
+
+    </Page>
+</mvc:View>

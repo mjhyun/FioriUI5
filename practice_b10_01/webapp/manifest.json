@@ -1,7 +1,7 @@
 {
   "_version": "1.49.0",
   "sap.app": {
-    "id": "projectb1005",
+    "id": "practiceb1001",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.10.5",
-      "toolsId": "40a6ec54-0b9d-4d00-97d3-242fe4549bf8"
+      "toolsId": "ab7d320b-9be7-428d-a0c0-be52c5003679"
     }
   },
   "sap.ui": {
@@ -55,10 +55,9 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "projectb1005.i18n.i18n"
+          "bundleName": "practiceb1001.i18n.i18n"
         }
-      },
-      "Controller": { "type": "sap.ui.model.json.JSONModel" }
+      }
     },
     "resources": {
       "css": [
@@ -72,36 +71,35 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "projectb1005.view",
+        "viewPath": "practiceb1001.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "RouteMain",
+          "name": "Routemain",
           "pattern": ":?query:",
           "target": [
-            "TargetMain"
+            "Targetmain"
           ]
         }
       ],
       "targets": {
-        "TargetMain": {
+        "Targetmain": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "Main",
-          "viewName": "Main"
+          "viewId": "main",
+          "viewName": "main"
         }
       }
     },
     "rootView": {
-      "viewName": "projectb1005.view.App",
+      "viewName": "practiceb1001.view.App",
       "type": "XML",
       "async": true,
       "id": "App"
-    },
-    "config" : { "fullwidth" : true }
+    }
   }
 }

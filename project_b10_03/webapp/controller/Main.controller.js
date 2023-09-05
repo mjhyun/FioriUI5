@@ -49,22 +49,22 @@ sap.ui.define([
 
             onAdd: function(result) {
                 let opt = this.byId("selectId").getSelectedItem().getText()
-                // let num1 = Number(this.byId("inputId").getValue())
-                // let num2 = Number(this.byId("inputId2").getValue())
+                 let num1 = Number(this.byId("inputId").getValue())
+                 let num2 = Number(this.byId("inputId2").getValue())
                 // main 모델의 list 배열 데이터를 가져오는 방법
                 var oModel = this.getView().getModel("Main"), // Main 모델 가져오기
-                    aList = oModel.getData().list, // list 배열 데이터 가져오기: getData는 모델의 데이터를 전부 가져온다
-                    aList2 = oModel.getProperty("/list"); // list 배열 데이터 가져오기2: getProperty는 경로에 맞는 데이터를 
+                    //aList = oModel.getData().list, // list 배열 데이터 가져오기: getData는 모델의 데이터를 전부 가져온다
+                    aList = oModel.getProperty("/list"); // list 배열 데이터 가져오기2: getProperty는 경로에 맞는 데이터를 
                                                           // 가져온다.
                     
-                aList2.push(
+                aList.push(
                     {
-                        num1: result.num1, 
+                        num1: num1, 
                         operator: opt, 
-                        num2: result.num2, 
-                        result : result.result
+                        num2: num2, 
+                        result : result
                     }); // 데이터 추가
-                oModel.setProperty("/list", aList2) // aList의 list배열에 aList2 데이터 세팅
+                oModel.setProperty("/list", aList) // aList의 list배열에 aList2 데이터 세팅
             },
 
             onChange: function(oEvent) {

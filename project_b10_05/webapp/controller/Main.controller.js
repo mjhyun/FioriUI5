@@ -9,7 +9,7 @@ sap.ui.define([
 
         return Controller.extend("projectb1005.controller.Main", {
             onInit: function () {
-                
+                var oData = {list:[]}
             }
         });
     });

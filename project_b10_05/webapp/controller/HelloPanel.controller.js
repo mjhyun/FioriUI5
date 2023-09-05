@@ -9,7 +9,14 @@ sap.ui.define([
 
         return Controller.extend("projectb1005.controller.HelloPanel", {
             onInit: function () {
-                
+                var oModel = this.getOwnerComponent().getModel("Controller")
+                oModel.setData({
+                    list : [
+                        {num1: '', num2: '', result : '', oper: ''},
+                        {num1: '', num2: '', result : '', oper: ''},
+                    ]
+                });
+                console.log(oModel.getData())
             },
 
             onShowHello: function () {
