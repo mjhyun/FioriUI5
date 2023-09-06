@@ -64,5 +64,16 @@
     <!--Element Binding 또는 Context binding 이라고 부름-->
     <!-- <Input binding="{main>/obj}" value="{main>key}"> -->
     <Button text="Open Dialog" press="onOpenDialog" />
+    <Button text="Dialog In View" press="onOpenDialog2" />
+        <Dialog id="idDialogView" title="Dialog In View"
+        contentHeight="50%"
+        contentWidth="40%">
+            <content>
+                <Text text="뷰 안에 있는 팝업 오픈!" />
+            </content>
+            <endButton>
+                <Button text="Close" press="onClose" />
+            </endButton>
+        </Dialog>
     </Page>
 </mvc:View>

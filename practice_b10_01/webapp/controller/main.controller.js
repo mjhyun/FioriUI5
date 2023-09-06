@@ -73,7 +73,6 @@ sap.ui.define([
                 this.getView().getModel().setProperty("/list", aList)
             },
 
-
             onOpenDialog: function () { // Dialog 함수
                 // if (!sap.ui.getCore().byId("idDialog")){
                 // Fragment.load({
@@ -95,24 +94,33 @@ sap.ui.define([
 
                 if (oDialog) {
                     oDialog.open();
+                    
                 } else {
                     this.loadFragment({
                         name: 'practiceb1001.fragment.HelloDialog',
                         type: 'XML',
                     }).then(function (oDialog) {
                         oDialog.open();
+                        console.log(oDialog)
                     }.bind(this));
                 }
+
             },
 
             onClose: function (oEvent) {
-                oEvent.getSource().getParent().close()
+                oEvent.getSource().getParent().close();
                 //sap.ui.getCore().byId("idDialog").close(); => Fragment.load쓸때
 
                 /*66666666+
                     또 다른 방법: oEvent 이용
                     oEvent.getSource().getParent().close()
                 */
+            },
+
+            onOpenDialog2: function () {
+                if (this.byId('idDialogView')) {
+                    this.byId('idDialogView').open();
+                }
             }
         });
     });

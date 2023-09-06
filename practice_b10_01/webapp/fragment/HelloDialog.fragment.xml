@@ -2,6 +2,7 @@
     xmlns:c="sap.ui.core" 
     xmlns="sap.m">
 
+    <!-- 팝업창 -->
     <Dialog id="idDialog" title="Hello Dialog"
         contentHeight="50%"
         contentWidth="40%">

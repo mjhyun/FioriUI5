@@ -21,9 +21,17 @@
 				<f:DynamicPageHeader pinnable="true">
 					<layout:HorizontalLayout allowWrapping="true">
 						<layout:VerticalLayout class="sapUiMediumMarginEnd">
-							<ObjectAttribute title="Location" text="Warehouse A"/>
-							<ObjectAttribute title="Halway" text="23L"/>
-							<ObjectAttribute title="Rack" text="34"/>
+							<Label text="Order ID"></Label>
+							<Input showValueHelp="true" valueHelpRequest="onValueHelp"/>
+						<!-- onValueHelp 함수에서 Dialog 띄우기
+
+							 파일명: Order.fragment.xml
+							 파일위치: webapp/view/fragment/Order.fragment.xml
+							 Fragment 안에 Dialog 구성
+
+							 Dialog content 안에는 sap.ui.table.Table 을 세팅
+					
+						-->
 						</layout:VerticalLayout>
 
 						<layout:VerticalLayout>
@@ -64,7 +72,6 @@
                         <Column width="100%">
 							<Text text="ShippedDate" />
 						</Column>
-
 					</columns>
 					<items>
 						<ColumnListItem>
