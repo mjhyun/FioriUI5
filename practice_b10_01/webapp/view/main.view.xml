@@ -5,10 +5,8 @@
     <Page id="page" title="{i18n>title}">
     <l:HorizontalLayout>
         <Input id="num1" type="Number" />
-        <Select id="opt" width="70px" items="{path:'/operators'}">
-            <items>
-            <core:Item text="{operatorText}"></core:Item>
-            </items>
+        <Select id="opt" showSecondaryValues="true" width="100px" items="{/operators}">
+            <core:ListItem text="{operatorText}" additionalText="{operatorKey}" />
         </Select>
         <Input id="num2" type="Number" />
         <Button type="Emphasized" id="btn" icon="sap-icon://touch" text="계산 실행" press=".onCalc"/>
@@ -30,8 +28,6 @@
         </OverflowToolbar>
     </t:extension>
     <t:columns>
-    <t:Column>
-    </t:Column>
         <t:Column width="100%">
             <Label text="Number1" />
             <t:template>
@@ -65,6 +61,8 @@
     </t:RowAction>
 </t:rowActionTemplate>
 </t:Table>
-
+    <!--Element Binding 또는 Context binding 이라고 부름-->
+    <!-- <Input binding="{main>/obj}" value="{main>key}"> -->
+    <Button text="Open Dialog" press="onOpenDialog" />
     </Page>
 </mvc:View>

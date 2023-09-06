@@ -6,7 +6,7 @@
     xmlns:f="sap.f"
     xmlns:u="sap.ui.unified"
     xmlns:layout="sap.ui.layout">
-        <f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+		<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
 			<!-- DynamicPage Title -->
 			<f:title>
 				<f:DynamicPageTitle>

@@ -1,0 +1,9 @@
+{ 
+    "list" : [],
+    "operators" : [
+    { "operatorKey":"더하기", "operatorText" : "+"},
+    { "operatorKey":"빼기", "operatorText" : "-"},
+    { "operatorKey":"곱하기", "operatorText" : "*"},
+    { "operatorKey":"나누기", "operatorText" : "/"}
+    ]
+}
