@@ -3,7 +3,7 @@
     xmlns="sap.m" xmlns:t="sap.ui.table">
 
     <Dialog id="idDialog" title="Products"
-        contentHeight="60%"
+        contentHeight="50%"
         contentWidth="100%">
             <content>
             <t:Table

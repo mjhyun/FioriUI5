@@ -12,7 +12,6 @@ sap.ui.define([
         return Controller.extend("Sap.btp.ux400solving.controller.Main", {
             formatter : {
                 transformDiscontinued: function(getData) {
-                    console.log(getData)
                     if(getData == true) {
                         return "Yes"
                     } else {
@@ -29,21 +28,20 @@ sap.ui.define([
             },
 
             onRandomPress: function() {
-                let oModel = this.getView().getModel()
-                let arr = oModel.getProperty("/list")
-                let putInput = this.byId("idInput")
                 let ranNum = Math.floor(Math.random() * 100) + 1
-
+                let putInput = this.byId("idInput")
                 putInput.setValue(ranNum)
-
-                arr.push({
-                    text:ranNum
-                })
-                oModel.setProperty("/list", arr)
-                
+                this.onAdd(ranNum)
             },
 
-            onDialog: function (oModel) {
+            onAdd: function(getData) {
+                let oModel = this.getView().getModel()
+                let arr = oModel.getProperty("/list")
+                arr.push({text: getData})
+                oModel.setProperty("/list", arr)
+            },
+
+            onDialog: function () {
                 sap.ui.getCore().setModel(this.getOwnerComponent().getModel())
             
                 if(!sap.ui.getCore().byId("idDialog")) {
@@ -67,16 +65,12 @@ sap.ui.define([
                 let uNum = this.byId("idInput").getValue()
 
                 if (uNum > 0 && uNum <= 100) {
-                    oEvent.getSource().setValueState("None")
-                    let arr = this.getView().getModel().getProperty("/list")
-                    arr.push({
-                        text: uNum
-                    })
-                    this.getView().getModel().setProperty("/list", arr)
+                    oEvent.getSource().setValueState("None");
+                    this.onAdd(uNum)
 
                 } else {
                     oEvent.getSource().setValueState("Error")
-                    return                 
+                    this.byId("idInput").setValueStateText("1이상 100이하 숫자를 넣어주세요")
                 }
             }
         });
