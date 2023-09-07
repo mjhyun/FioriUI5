@@ -76,8 +76,7 @@ sap.ui.define([
 
                 } else {
                     oEvent.getSource().setValueState("Error")
-                    return
-                    
+                    return                 
                 }
             }
         });
