@@ -78,10 +78,23 @@
                         <cells>
                         <Text text="{OrderID}"/>
                         <Text text="{CustomerID}"/>
-                        <Text text="{EmployeeID}"/>
-                        <Text text="{OrderDate}"/>
-                        <Text text="{RequiredDate}"/>
-                        <Text text="{ShippedDate}"/>
+						<!-- Expression Binding 적용 -->
+                        <Text text="{= ${EmployeeID} >= 3 ? 'YES' : ${EmployeeID} }"/>
+						<!-- <Input enabled="{= ${EmployeeID} >= 3 ? false : true }" value="{EmployeeID}"/> -->
+						
+						<!-- Formatter 함수 적용 -->
+                        <Text text="{
+							path: 'OrderDate',
+							formatter: '.formatter.fnDateString'
+							}"/>
+                        <Text text="{
+							path: 'RequiredDate',
+							formatter: '.formatter.fnDateString'
+							}"/>
+                        <Text text="{
+							path: 'ShippedDate',
+							formatter: '.formatter.fnDateString'
+							}"/>
                         </cells>
 						</ColumnListItem>
 					</items>
