@@ -73,7 +73,7 @@ sap.ui.define([
                 this.getView().getModel().setProperty("/list", aList)
             },
 
-            onOpenDialog: function () { // Dialog 함수
+            onOpenDialog: function (oDialog) { // Dialog 함수
                 // if (!sap.ui.getCore().byId("idDialog")){
                 // Fragment.load({
                 //     name: 'practiceb1001.fragment.HelloDialog',
@@ -96,12 +96,13 @@ sap.ui.define([
                     oDialog.open();
                     
                 } else {
+                    console.log(this)
                     this.loadFragment({
                         name: 'practiceb1001.fragment.HelloDialog',
                         type: 'XML',
                     }).then(function (oDialog) {
                         oDialog.open();
-                        console.log(oDialog)
+                        console.log(this)
                     }.bind(this));
                 }
 

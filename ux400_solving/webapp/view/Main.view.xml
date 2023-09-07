@@ -1,19 +1,21 @@
 <mvc:View controllerName="Sap.btp.ux400solving.controller.Main"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:c="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:t="sap.ui.table">
     <Page id="page" title="{i18n>title}">
-        <VBox class="sapUiLargeMargin">
+        <VBox class="sapUiLargeMargin" width="30%">
             <Text text="버튼을 클릭하면 아래 값이 랜덤으로 채워집니다" />
             <Input id="idInput" type="Number" change="onValueChange"  />
             <Button id="idButton" text="Random" press="onRandomPress" />
+			<!-- <ObjectStatus text="안녕하세요" icon="sap-icon://thumb-up"></ObjectStatus> -->
         </VBox>
 
         <VBox class="sapUiLargeMargin" width="30%">
-                   <t:Table
+			<t:Table
 				id = "tableId"
 				rows="{/list}"
-				selectionMode="MultiToggle"
+				selectionMode="None"
 				rowActionCount="1"
 				visibleRowCount="7"
 				paste="onPaste"

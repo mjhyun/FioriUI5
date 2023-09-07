@@ -6,7 +6,7 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Fragment) {
+    function (Controller, JSONModel) {
         "use strict";
 
         return Controller.extend("Sap.btp.ux400solving.controller.Main", {
@@ -19,7 +19,6 @@ sap.ui.define([
                     }
                 }
             },
-
 
             onInit: function () {
                 let oData = {list:[]}
@@ -42,23 +41,40 @@ sap.ui.define([
             },
 
             onDialog: function () {
-                sap.ui.getCore().setModel(this.getOwnerComponent().getModel())
-            
-                if(!sap.ui.getCore().byId("idDialog")) {
-                Fragment.load({
-                    name: 'Sap.btp.ux400solving.view.fragment.Products',
-                    type: 'XML',
-                    controller : this
-                    }).then(function(oDialog) {
-                        oDialog.open();
-                    });
+                this.getView().setModel(this.getOwnerComponent().getModel())
+
+                let oDialog = this.byId("idDialog");
+
+                if(oDialog){
+                    oDialog.open()
+                    console.log(oDialog)
                 } else {
-                    sap.ui.getCore().byId("idDialog").open()
+                this.loadFragment({
+                        name: 'Sap.btp.ux400solving.view.fragment.Products',
+                        type: 'XML'
+                    }).then(function (oDialog) {
+                        console.log(oDialog)
+                        oDialog.open();
+                    }.bind(this));
                 }
+                // sap.ui.getCore().setModel(this.getOwnerComponent().getModel())
+            
+                // if(!sap.ui.getCore().byId("idDialog")) {
+                // Fragment.load({
+                //     name: 'Sap.btp.ux400solving.view.fragment.Products',
+                //     type: 'XML',
+                //     controller : this
+                //     }).then(function(oDialog) {
+                //         oDialog.open();
+                //     });
+                // } else {
+                //     sap.ui.getCore().byId("idDialog").open()
+                // }
             },
 
             onClose: function() {
-                sap.ui.getCore().byId("idDialog").close()
+                //sap.ui.getCore().byId("idDialog").close()
+                this.byId("idDialog").close()
             },
 
             onValueChange: function(oEvent) {
@@ -72,6 +88,7 @@ sap.ui.define([
                     oEvent.getSource().setValueState("Error")
                     this.byId("idInput").setValueStateText("1이상 100이하 숫자를 넣어주세요")
                 }
-            }
+            },
+
         });
     });
