@@ -80,16 +80,31 @@ sap.ui.define([
             },
 
             onSearch: function() {
-                var orderNum = this.byId("idInput").getValue();
+                var inputNum = this.byId("idInput").getValue();
                 var aFilters = [
                     new Filter({
                         path: "OrderID",
                         operator: "EQ",
-                        value1: orderNum 
+                        value1: inputNum
                     }),
                 ];
-                this.byId("idProductsTable").getBinding('items').filter(aFilters)
 
+                if(inputNum){
+                this.byId("idProductsTable").getBinding('items').filter(aFilters)
+            } else {
+                this.byId("idProductsTable").getBinding('items').filter()
+            }
+
+            },
+
+            onNavDetail: function() {
+                //Detail.view.xml 화면으로 이동
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("RouteDetail" // 라우트 객체 이름 설정
+                , { 
+                    paramOrder: 'OrderID'
+                    //param2: 'Option'
+                }); 
             }
         })
     });

@@ -16,7 +16,8 @@
                 <!--
                     rows="{
                     path: '/Orders', 
-                    filters: [{
+                    filters: [{item
+                    
                         path: 'EmployeeID',
                         operator: 'EQ',
                         value1: 4,

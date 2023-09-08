@@ -14,7 +14,8 @@
 						<Title text="Header Title"/>
 					</f:heading>
 					<f:actions>
-						<Button text="Search" press="onSearch"/>
+						<Button text="Search" press="onSearch" type="Emphasized"/>
+						<Button text="Detail" press="onNavDetail" />
 					</f:actions>
 				</f:DynamicPageTitle>
 			</f:title>
@@ -25,13 +26,12 @@
 					<layout:HorizontalLayout allowWrapping="true">
 						<layout:VerticalLayout class="sapUiMediumMarginEnd">
 							<Label text="Order ID"></Label>
-							<Input id="idInput" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+							<Input id="idInput" showValueHelp="true" change="onSearch" valueHelpRequest="onValueHelp"/>
 						<!-- onValueHelp 함수에서 Dialog 띄우기
 
 							 파일명: Order.fragment.xml
 							 파일위치: webapp/view/fragment/Order.fragment.xml
 							 Fragment 안에 Dialog 구성
-
 							 Dialog content 안에는 sap.ui.table.Table 을 세팅
 					
 						-->
