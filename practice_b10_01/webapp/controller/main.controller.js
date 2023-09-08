@@ -1,12 +1,14 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "sap/ui/model/FilterOperator",
+    "sap/ui/model/Filter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Fragment) {
+    function (Controller, JSONModel, Fragment, FilterOperator, Filter) {
         "use strict";
 
         return Controller.extend("practiceb1001.controller.main", {
@@ -122,6 +124,6 @@ sap.ui.define([
                 if (this.byId('idDialogView')) {
                     this.byId('idDialogView').open();
                 }
-            }
+            },
         });
     });

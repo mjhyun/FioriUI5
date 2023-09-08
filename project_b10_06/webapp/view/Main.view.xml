@@ -13,6 +13,9 @@
 					<f:heading>
 						<Title text="Header Title"/>
 					</f:heading>
+					<f:actions>
+						<Button text="Search" press="onSearch"/>
+					</f:actions>
 				</f:DynamicPageTitle>
 			</f:title>
 
@@ -22,7 +25,7 @@
 					<layout:HorizontalLayout allowWrapping="true">
 						<layout:VerticalLayout class="sapUiMediumMarginEnd">
 							<Label text="Order ID"></Label>
-							<Input showValueHelp="true" valueHelpRequest="onValueHelp"/>
+							<Input id="idInput" showValueHelp="true" valueHelpRequest="onValueHelp"/>
 						<!-- onValueHelp 함수에서 Dialog 띄우기
 
 							 파일명: Order.fragment.xml

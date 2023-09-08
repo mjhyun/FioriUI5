@@ -16,7 +16,7 @@
                 ariaLabelledBy="title">
                 <t:extension>
 					<OverflowToolbar style="Clear">
-						<Title id="titleId" text="Products"/>
+						<Title id="title" text="Products"/>
                         <ToolbarSpacer />
 					</OverflowToolbar>
 				</t:extension>
