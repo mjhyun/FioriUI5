@@ -7,7 +7,7 @@
         contentWidth="100%">
                     <t:Table
                 id="idTable"
-                rows="{/Products}"
+                rows="{mmain>/Products}"
                 selectionMode="None"
                 rowActionCount="1"
                 visibleRowCount="7"
@@ -23,70 +23,70 @@
                     <t:Column width="100%">
                         <Label text="ProductID" />
                         <t:template>
-                            <Text text="{ProductID}" wrapping="false" />
+                            <Text text="{mmain>ProductID}" wrapping="false" />
                         </t:template>
                     </t:Column>
                     <t:Column width="100%">
                         <Label text="ProductName" />
                         <t:template>
-                            <Text text="{ProductName}" wrapping="false" />
+                            <Text text="{mmain>ProductName}" wrapping="false" />
                         </t:template>
                     </t:Column>
                     <t:Column width="100%">
                         <Label text="SupplierID" />
                         <t:template>
-                            <Text text="{SupplierID}" wrapping="false" />
+                            <Text text="{mmain>SupplierID}" wrapping="false" />
                         </t:template>
                     </t:Column>
                     <t:Column width="100%">
                         <Label text="CategoryID" />
                         <t:template>
-                            <Text text="{CategoryID}" wrapping="false" />
+                            <Text text="{mmain>CategoryID}" wrapping="false" />
                         </t:template>
                     </t:Column>
                     <t:Column width="100%">
                         <Label text="QuantityPerUnit" />
                         <t:template>
-                            <Text text="{QuantityPerUnit}" wrapping="false" />
+                            <Text text="{mmain>QuantityPerUnit}" wrapping="false" />
                         </t:template>
                     </t:Column>
                     <t:Column width="100%">
                         <Label text="UnitPrice" />
                         <t:template>
-                            <Text text="{UnitPrice}" wrapping="false" />
+                            <Text text="{mmain>UnitPrice}" wrapping="false" />
                         </t:template>
                     </t:Column>
                     <t:Column width="100%">
                         <Label text="UnitsInStock" />
                         <t:template>
-                            <Text text="{UnitsInStock}" wrapping="false" />
+                            <Text text="{mmain>UnitsInStock}" wrapping="false" />
                         </t:template>
                     </t:Column>    
                     <t:Column width="100%">
                         <Label text="UnitsOnOrder" />
                         <t:template>
-                            <Text text="{UnitsOnOrder}" wrapping="false" />
+                            <Text text="{mmain>UnitsOnOrder}" wrapping="false" />
                         </t:template>
                     </t:Column>    
                     <t:Column width="100%">
                         <Label text="ReorderLevel" />
                         <t:template>
-                            <Text text="{ReorderLevel}" wrapping="false" />
+                            <Text text="{mmain>ReorderLevel}" wrapping="false" />
                         </t:template>
                     </t:Column>    
                     <t:Column width="100%">
                         <Label text="Discontinued" />
                         <t:template>
                             <Text text="{
-                                path: 'Discontinued',
+                                path: 'mmain>Discontinued',
                                 formatter: '.formatter.transformDiscontinued'}" wrapping="false" />
                         </t:template>
                     </t:Column>
                     <t:Column>
                         <Label text="Status" />
                         <t:template>
-                            <c:Icon src="{= ${UnitPrice} >= 15 ? 'sap-icon://thumb-up' : 'sap-icon://thumb-down'}" 
-                            color="{= ${UnitPrice} >= 15 ? '#FF0000' : '#0000FF'}" />
+                            <c:Icon src="{= ${mmain>UnitPrice} >= 15 ? 'sap-icon://thumb-up' : 'sap-icon://thumb-down'}" 
+                            color="{= ${mmain>UnitPrice} >= 15 ? '#FF0000' : '#0000FF'}" />
                         </t:template>
                     </t:Column>
                 </t:columns>

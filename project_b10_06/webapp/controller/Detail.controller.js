@@ -32,22 +32,15 @@ sap.ui.define([
                     urlParameters: {
                         '$expand' : 'Order_Details'
                     },
-                    success: function(oReturn) {
+                    success: function(oReturn) { // json data
+                        // JSON DATA를 JSON Model에 넣어서 사용가능..
                         var detail = new JSONModel(oReturn.Order_Details)
                         this.byId("idODTable").setModel(detail)
-                        console.log(this.byId("idODTable").getModel())
-                        ; // json data
-                        // JSON DATA를 JSON Model에 넣어서 사용가능..
                     }.bind(this),
                     error: function(oError) {
-                        console.log(oError)
-
                     }
                 })
-
             },
-
-            
 
             onNavMain: function() { // 뒤로가기 버튼
                 var oRouter = this.getOwnerComponent().getRouter();

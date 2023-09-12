@@ -69,7 +69,7 @@
           "bundleName": "Sap.btp.ux400solving.i18n.i18n"
         }
       },
-      "": {
+      "mmain": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {}

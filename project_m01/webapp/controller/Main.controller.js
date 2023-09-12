@@ -45,7 +45,6 @@ sap.ui.define([
 
             onDialog: function() {
                 var aDialog = this.byId("idDialog")
-                console.log(aDialog)
 
                 if(aDialog) {
                     aDialog.open();
