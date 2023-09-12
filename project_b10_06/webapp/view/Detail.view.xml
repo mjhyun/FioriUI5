@@ -3,15 +3,126 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:t="sap.ui.table"
-    xmlns:f="sap.f"
     xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form"
     xmlns:layout="sap.ui.layout">
 
     <Page title="Detail Page" 
           showNavButton="true" 
           navButtonPress="onNavMain">
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="idSimpleForm"
+                editable="true"
+                layout="ColumnLayout"
+                title="Order Detail ({OrderID})"
+                columnsXL="4"
+                columnsL="3"
+                columnsM="2"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <c:Title text="Order" />
+                    <Label text="OrderID" />
+                    <Text id="OrderID" text="{OrderID}" />
 
-    
+                    <Label text="CustomerID" />
+                    <Text text="{CustomerID}"/>
+
+                    <Label text="EmployeeID" />
+                    <Text text="{EmployeeID}"/>
+
+                    <Label text="OrderDate" />
+                    <Text text="{
+                                path: 'OrderDate',
+                                type: 'sap.ui.model.type.Date',
+                                formatOptions: {
+                                    pattern : 'yyyy-MM-dd'
+                                    }
+                                }" />
+                    <Label text="RequiredDate" />
+                    <Text text="{
+                                path: 'RequiredDate',
+                                type: 'sap.ui.model.type.Date',
+                                formatOptions: {
+                                    pattern : 'yyyy-MM-dd'
+                                    }
+                                }" />
+
+                    <c:Title text="Ship" />
+                    <Label text="ShippedDate" />
+                    <Text text="{
+                                path: 'ShippedDate',
+                                type: 'sap.ui.model.type.Date',
+                                formatOptions: {
+                                    pattern : 'yyyy-MM-dd'
+                                    }
+                                }" />
+                    <Label text="ShipVia" />
+                    <Text text="{ShipVia}" />
+
+                    <Label text="Freight" />
+                    <Text text="{Freight}" />
+
+                    <Label text="ShipName" />
+                    <Text text="{ShipName}" />
+                    <Label text="ShipAddress" />
+                    <Text text="{ShipAddress}" />
+                    <Label text="ShipCity" />
+                    <Text text="{ShipCity}" />
+                    <Label text="ShipVia" />
+                    <Text text="{ShipVia}" />
+                    <Label text="ShipCity" />
+                    <Text text="{ShipCity}" />
+                    <Label text="ShipRegion" />
+                    <Text text="{= ${ShipRegion} ? ${ShipRegion} : '(None)' }" />
+                    <Label text="ShipPostalCode" />
+                    <Text text="{ShipPostalCode}" />
+                    <Label text="ShipCountry" />
+                    <Text text="{ShipCountry}" />               
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+
+        <VBox>
+                <Table id="idODTable"
+                    sticky="HeaderToolbar,ColumnHeaders"
+                    inset="false"
+                    items="{/results}"
+                    class="sapFDynamicPageAlignContent"
+                    width="auto">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Order Details" level="H2"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="100%">
+                        <Text text="OrderID" />
+                    </Column>
+                    <Column width="100%">
+                        <Text text="ProductID" />
+                    </Column>
+                    <Column width="100%">
+                        <Text text="UnitPrice" />
+                    </Column>
+                    <Column width="100%">
+                        <Text text="Quantity" />
+                    </Column>
+                    <Column width="100%">
+                        <Text text="Discount" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                    <cells>
+                    <Text text="{OrderID}"/>
+                    <Text text="{ProductID}"/>
+                    <Text text="{UnitPrice}"/>
+                    <Text text="{Quantity}"/>
+                    <Text text="{Discount}"/>
+                    </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
     </Page>
-
 </mvc:View>

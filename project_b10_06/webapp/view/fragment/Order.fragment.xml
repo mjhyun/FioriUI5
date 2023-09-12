@@ -9,7 +9,8 @@
             <t:Table
                 id="idOrderTable"
                 rows="{/Orders}"
-                selectionMode="None"
+                selectionBehavior="RowOnly"
+                rowSelectionChange="onRowChange"
                 visibleRowCount="10"
                 paste="onPaste"
                 ariaLabelledBy="title">

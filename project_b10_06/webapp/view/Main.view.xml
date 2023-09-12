@@ -5,6 +5,7 @@
     xmlns:t="sap.ui.table"
     xmlns:f="sap.f"
     xmlns:u="sap.ui.unified"
+	xmlns:fb="sap.ui.comp.filterbar"
     xmlns:layout="sap.ui.layout">
 		<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
 			<!-- DynamicPage Title -->
@@ -14,8 +15,8 @@
 						<Title text="Header Title"/>
 					</f:heading>
 					<f:actions>
-						<Button text="Search" press="onSearch" type="Emphasized"/>
-						<Button text="Detail" press="onNavDetail" />
+						<!-- <Button text="Search" press="onSearch" type="Emphasized"/>
+						<Button text="Detail" press="onNavDetail" /> -->
 					</f:actions>
 				</f:DynamicPageTitle>
 			</f:title>
@@ -23,25 +24,27 @@
 			<!-- DynamicPage Header -->
 			<f:header>
 				<f:DynamicPageHeader pinnable="true">
-					<layout:HorizontalLayout allowWrapping="true">
-						<layout:VerticalLayout class="sapUiMediumMarginEnd">
-							<Label text="Order ID"></Label>
-							<Input id="idInput" showValueHelp="true" change="onSearch" valueHelpRequest="onValueHelp"/>
-						<!-- onValueHelp 함수에서 Dialog 띄우기
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="OrderID" label="OrderID" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<Input id="idInput" valueHelpRequest="onValueHelp" showValueHelp="true" />
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="CustomerID" label="CustomerID" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<Input id="idInput2" valueHelpRequest="onValueHelp2" showValueHelp="true"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="OrderDate" label="OrderDate" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<DateRangeSelection id="idDateRange" displayFormat="yyyy-MM-dd"/>
+										<!-- From-To가 아니라 단일 날짜 형태면 DatePicker 사용. 위에는 From-To -->
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
 
-							 파일명: Order.fragment.xml
-							 파일위치: webapp/view/fragment/Order.fragment.xml
-							 Fragment 안에 Dialog 구성
-							 Dialog content 안에는 sap.ui.table.Table 을 세팅
-					
-						-->
-						</layout:VerticalLayout>
-
-						<layout:VerticalLayout>
-							<ObjectAttribute title="Availability"/>
-							<ObjectStatus text="In Stock" state="Success" />
-						</layout:VerticalLayout>
-					</layout:HorizontalLayout>
 				</f:DynamicPageHeader>
 			</f:header>
 			<f:content>
@@ -49,6 +52,8 @@
 						sticky="HeaderToolbar,ColumnHeaders"
 						inset="false"
 						items="{/Orders}"
+						mode="SingleSelectMaster"
+						selectionChange="onSelectionChange"
 					   class="sapFDynamicPageAlignContent"
 					   width="auto">
 					<headerToolbar>
@@ -58,7 +63,7 @@
 					</headerToolbar>
 					<columns>
 						<Column width="100%">
-							<Text text="Products" />
+							<Text text="Order" />
 						</Column>
                         <Column width="100%">
 							<Text text="Customer" />

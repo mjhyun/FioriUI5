@@ -1,0 +1,47 @@
+<c:FragmentDefinition 
+    xmlns:c="sap.ui.core" 
+    xmlns="sap.m" xmlns:t="sap.ui.table">
+
+    <Dialog id="idCustomerDialog" title="Customers" resizable="true" draggable="true"
+        contentHeight="50%"
+        contentWidth="40%">
+            <t:Table
+                id="idCustomerTable"
+                rows="{/Customers}"
+                visibleRowCount="10"
+                paste="onPaste"
+                selectionBehavior="RowOnly"
+                rowSelectionChange="onRowChange2"
+                ariaLabelledBy="title">
+                <t:columns>
+                    <t:Column width="100%">
+                        <Label text="CustomerID" />
+                        <t:template>
+                            <Text text="{CustomerID}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="100%">
+                        <Label text="CompanyName" />
+                        <t:template>
+                            <Text text="{CompanyName}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="100%">
+                        <Label text="Country" />
+                        <t:template>
+                            <Text text="{Country}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="100%">
+                        <Label text="City" />
+                        <t:template>
+                            <Text text="{City}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+            <endButton>
+                <Button text="Close" press="onClose" />
+            </endButton>
+    </Dialog>
+</c:FragmentDefinition>

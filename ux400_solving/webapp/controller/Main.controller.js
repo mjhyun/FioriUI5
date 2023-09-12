@@ -53,7 +53,6 @@ sap.ui.define([
                         name: 'Sap.btp.ux400solving.view.fragment.Products',
                         type: 'XML'
                     }).then(function (oDialog) {
-                        console.log(oDialog)
                         oDialog.open();
                     }.bind(this));
                 }
