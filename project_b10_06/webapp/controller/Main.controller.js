@@ -120,7 +120,7 @@ sap.ui.define([
                             value1: inputCm
                         }))
                 }
-                console.log(getDateRange.getValue())
+
                 if(getDateRange.getDateValue() && getDateRange.getSecondDateValue()){
                     aFilters.push(
                     new Filter({
@@ -164,7 +164,6 @@ sap.ui.define([
         },
 
         onRowChange2: function(oEvent) {
-            debugger;
             var getId = this.getView().getModel().getProperty("/"+oEvent.getSource().getBinding('rows').aKeys[oEvent.getParameters().rowIndices]).CustomerID
             this.byId("idInput2").setValue(getId)
             sap.ui.getCore().byId("idCustomerDialog").close()
