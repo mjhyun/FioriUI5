@@ -7,8 +7,10 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-        return Controller.extend("zprojectb1008.controller.Main", {
+        return Controller.extend("testpkm.controller.Main", {
             onInit: function () {
+                var newModel = new JSONModel()
+                this.getView.setModel(newModel)
             }
         });
     });

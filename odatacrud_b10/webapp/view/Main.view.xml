@@ -1,0 +1,84 @@
+<mvc:View controllerName="odatacrudb10.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <l:Grid class="sapUiSmallMargin">
+                <Input id="idInput" value="{view>/MB_ID}" description="회원번호" placeholder="회원번호를 입력해주세요">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                </Input>
+                <Input id="idInput2" value="{view>/MB_NM}" description="회원명" placeholder="회원명을 입력해주세요">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                </Input>
+                <Input id="idInput3" value="{view>/TELNO}" description="연락처" placeholder="연락처를 입력해주세요">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                </Input>
+                <Input id="idInput4" value="{view>/EMAIL}" description="이메일" placeholder="이메일을 입력해주세요">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                </Input>
+                <Input id="idInput5" value="{view>/MB_ST}" description="회원상태" placeholder="회원상태를 입력해주세요">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                </Input>
+            </l:Grid>
+
+        <Table id="idMemberTable"
+            sticky="HeaderToolbar,ColumnHeaders"
+            inset="false"
+            items="{/MemberSet}"
+            mode="SingleSelectMaster"
+            class="sapFDynamicPageAlignContent"
+            width="auto">
+					<headerToolbar>
+                    <OverflowToolbar>
+                            <Title text="Member List" level="H2"/>
+                            <ToolbarSpacer />
+                            <Button text="ReadEntity" type="Emphasized" press="onRead" />
+                            <Button text="Create" type="Emphasized" press="onCreate" />
+                            <Button text="Update" type="Emphasized" press="onUpdate" />
+                            <Button text="Delete" type="Emphasized" press="onDelete" />
+                    </OverflowToolbar>
+					</headerToolbar>
+
+					<columns>
+						<Column width="100%">
+							<Text text="회원번호" />
+						</Column>
+                        <Column width="100%">
+							<Text text="회원명" />
+						</Column>
+                        <Column width="100%">
+							<Text text="연락처" />
+						</Column>
+                        <Column width="100%">
+							<Text text="이메일" />
+						</Column>
+                        <Column width="100%">
+							<Text text="회원상태" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+                        <cells>
+                        <Text text="{MB_ID}"/>
+                        <Text text="{MB_NM}"/>
+                        <Text text="{TELNO}"/>
+                        <Text text="{EMAIL}"/>
+                        <Text text="{MB_ST}"/>
+                        </cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+        </content>
+    </Page>
+</mvc:View>

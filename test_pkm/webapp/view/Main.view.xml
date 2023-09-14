@@ -1,0 +1,32 @@
+<mvc:View controllerName="testpkm.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+                <Table id="idMemberTable"
+            sticky="HeaderToolbar,ColumnHeaders"
+            inset="false"
+            items="{TEST>/ztmember_b10Set}"
+            mode="SingleSelectMaster"
+            class="sapFDynamicPageAlignContent"
+            width="auto">
+					<headerToolbar>
+                    <Toolbar>
+                        <Title text="Member List" level="H2" />
+                    </Toolbar>
+					</headerToolbar>
+
+					<columns>
+						<Column width="100%">
+							<Text text="회원번호" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+                        <cells>
+                        <Text text="{MB_ID}"/>
+                        </cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+    </Page>
+</mvc:View>

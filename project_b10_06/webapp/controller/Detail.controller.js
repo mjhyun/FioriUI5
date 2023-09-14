@@ -23,6 +23,7 @@ sap.ui.define([
                 //{paramOrder: 'OrderID', param2: undefined}
 
                 this.getView().bindElement(`/Orders(${oParam.paramOrder})`);
+                
                 var oModel = this.getView().getModel()
                 var sPath = oModel.createKey('/Orders', {
                     OrderID : oParam.paramOrder

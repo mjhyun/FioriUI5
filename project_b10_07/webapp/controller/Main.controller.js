@@ -70,7 +70,8 @@ sap.ui.define([
                     'legendGroup': {layout: {position: 'left'} },
                     'plotArea': {
                         drawingEffect: 'glossy',
-                        colorPalette: ['#B7F0B1','#A7F9B2','#B2EBF4']
+                        colorPalette: ['#B7F0B1','#A7F9B2','#B2EBF4'],
+                        dataLabel : {visible : true}
                     }
                 })
             }

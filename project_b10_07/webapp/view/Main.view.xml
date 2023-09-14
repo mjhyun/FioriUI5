@@ -6,14 +6,15 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content>
-            <viz:VizFrame id="idLineChart" width="auto" height="500px" vizType="line" 
+            <viz:VizFrame id="idLineChart" width="auto" height="500px" vizType="stacked_column" 
             uiConfig="{'applicationSet':'fiori'}"
             vizProperties="{
                 'title': {'visible':true, 'text':'Line Chart'},
                 'legendGroup': {layout: {position: 'left'} },
                 'plotArea': {
                     drawingEffect: 'glossy',
-                    colorPalette: ['#B7F0B1','#A7F9B2','#B2EBF4']
+                    colorPalette: ['#B7F0B1','#A7F9B2','#B2EBF4'],
+                    dataLabel : {visible : true}
                 }
             }">
                 
@@ -24,7 +25,8 @@
                          </viz.data:dimensions>
 
                          <viz.data:measures> <!-- y축 -->
-                            <viz.data:MeasureDefinition name="숫자" value="{view>rate}" />
+                            <viz.data:MeasureDefinition name="숫자" value="{view>rate}"/>
+                            <viz.data:MeasureDefinition name="숫자2" value="{view>cost}" />
                          </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
@@ -32,7 +34,7 @@
                 <viz:feeds> <!-- 차트 관련 UI 설정 -->
                     <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="이름" /> <!-- X축 -->
                     <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="숫자" /> <!-- Y축 -->
-                    <!-- <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="숫자2" /> -->
+                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="숫자2" /> 
                     <!-- values="숫자, 숫자2"도 가능-->
 
                 <!-- 위에 viztype이 pie인 경우 uid는 color, size 그외에는 categoryAxis, valueAxis -->

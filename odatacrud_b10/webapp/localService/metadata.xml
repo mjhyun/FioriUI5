@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZMEMBER_B00_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Member" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MB_ID"/>
+                </Key>
+                <Property Name="MB_ID" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="회원번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MB_NM" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="회원명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TELNO" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="연락처" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EMAIL" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="이메일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MB_ST" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="회원상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="WorkSet" Relationship="ZMEMBER_B00_SRV.HeaderToItem" FromRole="FromRole_HeaderToItem" ToRole="ToRole_HeaderToItem"/>
+            </EntityType>
+            <EntityType Name="Work" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MB_ID"/>
+                    <PropertyRef Name="WORKNO"/>
+                </Key>
+                <Property Name="MB_ID" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="회원번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WORKNO" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="numc5" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WORKNM" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ERDAT" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MEMO" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZshMbidB00" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MbId"/>
+                </Key>
+                <Property Name="MbId" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="회원번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MbNm" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="회원명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="HeaderToItem" sap:content-version="1">
+                <End Type="ZMEMBER_B00_SRV.Member" Multiplicity="1" Role="FromRole_HeaderToItem"/>
+                <End Type="ZMEMBER_B00_SRV.Work" Multiplicity="*" Role="ToRole_HeaderToItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_HeaderToItem">
+                        <PropertyRef Name="MB_ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_HeaderToItem">
+                        <PropertyRef Name="MB_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZMEMBER_B00_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="MemberSet" EntityType="ZMEMBER_B00_SRV.Member" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="WorkSet" EntityType="ZMEMBER_B00_SRV.Work" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZshMbidB00Set" EntityType="ZMEMBER_B00_SRV.ZshMbidB00" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="HeaderToItemSet" Association="ZMEMBER_B00_SRV.HeaderToItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="MemberSet" Role="FromRole_HeaderToItem"/>
+                    <End EntitySet="WorkSet" Role="ToRole_HeaderToItem"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://sapmento.mento.co.kr:8001/sap/opu/odata/sap/ZMEMBER_B00_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://sapmento.mento.co.kr:8001/sap/opu/odata/sap/ZMEMBER_B00_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

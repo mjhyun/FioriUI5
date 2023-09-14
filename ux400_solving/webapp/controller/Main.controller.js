@@ -41,7 +41,7 @@ sap.ui.define([
             },
 
             onDialog: function () {
-                this.getView().setModel(this.getOwnerComponent().getModel())
+                
 
                 let oDialog = this.byId("idDialog");
 
@@ -53,6 +53,7 @@ sap.ui.define([
                         name: 'Sap.btp.ux400solving.view.fragment.Products',
                         type: 'XML'
                     }).then(function (oDialog) {
+                        oDialog.setModel(this.getOwnerComponent().getModel())
                         oDialog.open();
                     }.bind(this));
                 }
