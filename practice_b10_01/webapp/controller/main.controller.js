@@ -92,7 +92,7 @@ sap.ui.define([
 
                 ///////////////////////////////////////////////////////////////
 
-                let oDialog = this.byId("idDialog");
+                let oDialog = this.byId("idBookStatusDialog");
 
                 if (oDialog) {
                     oDialog.open();
