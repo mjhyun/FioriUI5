@@ -1,0 +1,10 @@
+/* Enter your custom styles here */
+
+.cssText {
+    font-weight: bold;
+}
+
+#application-examexprogramb10-display-component---Main--page-title-inner {
+    font-weight: bold;
+    text-decoration : underline;
+}

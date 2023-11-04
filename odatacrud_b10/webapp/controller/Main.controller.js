@@ -15,9 +15,6 @@ sap.ui.define([
                 this.getView().setModel(oModel, 'view')
             },
 
-            onSelectionChange: function() {
-            },
-
             onRead: function(){
                 // var getId = this.byId("idMemberTable").getSelectedContexts()[0].getObject().MB_ID
                 // var bindItem = this.byId("idMemberTable").getBinding('items')
