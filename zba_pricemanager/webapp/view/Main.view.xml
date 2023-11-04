@@ -1,0 +1,58 @@
+<mvc:View controllerName="zbapricemanager.controller.Main"
+    xmlns:c="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:f="sap.f"
+    xmlns:u="sap.ui.unified"
+	xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:layout="sap.ui.layout">
+		<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="고객사 목록"/> <!-- 리스트개수 추가하기	-->
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+
+		<!-- DynamicPage Content -->
+		<f:content>
+			<Table
+				id="productsTable"
+				mode="SingleSelectMaster"
+				itemPress="onListItemPress"
+				inset="false"
+				items="{
+					path: '/ZBA_SDT010Set',
+					sorter: {
+						path: 'Kunnr'
+					}
+				}"
+				class="sapFDynamicPageAlignContent"
+				width="auto">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<SearchField search="onSearch" width="17.5rem"/>
+						<OverflowToolbarButton icon="sap-icon://add" type="Transparent" press="onAdd"/>
+						<OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="고객사 목록" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{Kutxt}" text="{Kunnr}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+		</f:DynamicPage>
+</mvc:View>

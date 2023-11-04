@@ -11,7 +11,10 @@ sap.ui.define([
 
         return Controller.extend("SAP.BTP.ux410solving.controller.Main", {
             onInit: function () {
-                var arr = [{type : "bar"},{type : "column"},{type : "line"},{type : "donut"}]
+                var arr = [{type : "bar"}, 
+                            {type : "column"}, 
+                            {type : "line"}, 
+                            {type : "donut"}]
                 var JModel = new JSONModel(arr)
                 this.getView().setModel(JModel, "typeList")
 
@@ -30,6 +33,8 @@ sap.ui.define([
                 var getType = this.byId("idComboBox2").getSelectedItem().getText()
                 var bindItem = this.byId("idFDset").getBinding('data')
                 var aFilters = []
+
+                bindItem.filter(aFilters)
 
                 // 필터 적용
                 if(getComb != null){
@@ -52,6 +57,7 @@ sap.ui.define([
             onSelectData: function(oEvent) {
                 var getOid = oEvent.getParameters().data[0].data.OrderID
                 var getPid = oEvent.getParameters().data[0].data.ProductID
+                debugger
                 return this.onNavDetail(getOid, getPid)
 
             },

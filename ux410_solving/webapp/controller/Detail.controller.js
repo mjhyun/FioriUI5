@@ -15,7 +15,9 @@ sap.ui.define([
             },
 
             _patternMatched: function(oEvent) {
+                debugger;
                 var oParam = oEvent.getParameters().arguments;
+                // {paramOrder: 10248, paramPid:72}
                 this.getView().bindElement(`/Order_Details(OrderID=${oParam.paramOrder},ProductID=${oParam.paramPid})`);
             }
         })
