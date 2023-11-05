@@ -102,9 +102,16 @@
         },
         {
           "name": "RouteDetail",
-          "pattern": "detail/{paramOrder}",
+          "pattern": "detail/{paramCust}",
           "target": [
             "TargetDetail"
+          ]
+        },
+        {
+          "name": "RouteEdit",
+          "pattern": "Edit/{paramCust}",
+          "target": [
+            "TargetEdit"
           ]
         }
       ],
@@ -122,7 +129,14 @@
         "clearControlAggregation": false,
         "viewId": "Detail",
         "viewName": "Detail"
-        }
+        },
+        "TargetEdit" : {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Edit",
+          "viewName": "Edit"
+          }
       }
     },
     "rootView": {

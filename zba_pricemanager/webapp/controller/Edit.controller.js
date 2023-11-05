@@ -7,33 +7,22 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-        return Controller.extend("zbapricemanager.controller.Detail", {
+        return Controller.extend("zbapricemanager.controller.Edit", {
             onInit: function () {
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.getRoute("RouteDetail").attachPatternMatched(this._patternMatched, this)
+                oRouter.getRoute("RouteEdit").attachPatternMatched(this._patternMatched, this)
             },
 
             _patternMatched: function(oEvent) {
                 // 파라미터로 받은 값 가져오기
                 var oParam = oEvent.getParameters().arguments;
                 this.getView().bindElement(`/ZBA_SDT010Set('${oParam.paramCust}')`);
-
-
-                //oParam 안에는 manifest.json에 등록된
-                //RouteDetail의 Parameter의 값들이 있음
-                //{paramOrder: 'OrderID', param2: undefined}
             },
 
-            onNavMain: function() { // 뒤로가기 버튼
-                var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("RouteMain");
-            },
-
-            onEdit: function(oEvent) {
+            onEditCancel: function(oEvent) { // 변경 취소 버튼
                 var oRouter = this.getOwnerComponent().getRouter();
                 var getParam = oEvent.getSource().getBindingContext().getObject().Kunnr
-
-                oRouter.navTo("RouteEdit", {paramCust: getParam});                
-            }
-        })
+                oRouter.navTo("RouteDetail", {paramCust:getParam});
+            },
+        });
     });

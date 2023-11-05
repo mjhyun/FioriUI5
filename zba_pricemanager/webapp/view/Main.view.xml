@@ -20,24 +20,20 @@
 		<!-- DynamicPage Content -->
 		<f:content>
 			<Table
-				id="productsTable"
+				id="CustomerTable"
 				mode="SingleSelectMaster"
 				itemPress="onListItemPress"
 				inset="false"
 				items="{
-					path: '/ZBA_SDT010Set',
-					sorter: {
-						path: 'Kunnr'
-					}
+					path: '/ZBA_SDT010Set'
 				}"
 				class="sapFDynamicPageAlignContent"
 				width="auto">
 				<headerToolbar>
 					<OverflowToolbar>
-						<ToolbarSpacer/>
-						<SearchField search="onSearch" width="17.5rem"/>
-						<OverflowToolbarButton icon="sap-icon://add" type="Transparent" press="onAdd"/>
-						<OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/>
+						<SearchField id="searchInput" liveChange="onSearch" width="17.5rem"/>
+						<Button text="추가" type="Emphasized" press="onAdd"/>
+						<!-- <OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/> -->
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>

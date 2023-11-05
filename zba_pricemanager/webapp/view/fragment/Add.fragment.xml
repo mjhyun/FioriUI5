@@ -1,0 +1,60 @@
+<c:FragmentDefinition 
+    xmlns:c="sap.ui.core" 
+    xmlns="sap.m" xmlns:t="sap.ui.table"
+    xmlns:f="sap.ui.layout.form">
+
+    <Dialog id="customerDialog" title="고객 추가" resizable="true"
+        afterOpen="onAfterOpen"
+        contentHeight="40%"
+        contentWidth="50%">
+        <f:SimpleForm id="addSimpleForm"
+			editable="true"
+			layout="ColumnLayout"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+			>
+				<Label text="고객명" />
+				<Input id="" value="{Kutxt}" />
+				<Label text="업종" />
+				<Select id="brsch" selectedKey="{Brsch}">
+					<items>
+						<c:Item text="자동차" key="A"/>
+						<c:Item text="건설" key="B"/>
+					</items>
+				</Select>  
+
+				<!-- 두번째 -->
+				<Label text="대표자명" />
+				<Input value="{Frepre}"/>
+
+				<Label text="출하지점" />
+				<Input value="{Ablad}"/>
+
+				<Label text="여신등급" />
+				<Select id="crert" selectedKey="{Crert}">
+					<items>
+						<c:Item text="A+" key="A+"/>
+                        <c:Item text="A" key="A"/>
+                        <c:Item text="B+" key="B+"/>
+                        <c:Item text="B" key="B"/>
+                        <c:Item text="C" key="C"/>
+					</items>
+				</Select>
+
+				<!-- 세번째 -->
+				<Label text="이메일" />
+				<Input value="{Cemail}" type="Email"/>
+				<Label text="전화번호" />
+				<Input value="{Telp1}" type="Tel"/>
+				<Label text="주소" />
+				<Input value="{Adrnr}"/>
+            </f:SimpleForm>
+            <beginButton>
+                <Button text="추가" press="onInsert" />
+            </beginButton>
+            <endButton>
+                <Button text="닫기" press="onClose" />
+            </endButton>
+    </Dialog>
+</c:FragmentDefinition>

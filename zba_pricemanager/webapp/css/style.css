@@ -1,1 +1,9 @@
 /* Enter your custom styles here */
+
+.sapMText[data-mydata="Red"] {
+    color: red;
+}
+
+.sapMText[data-mydata="Green"] {
+    color: green;
+}

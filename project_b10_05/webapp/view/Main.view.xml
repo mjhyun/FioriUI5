@@ -219,26 +219,12 @@
 			columnsXL="4"
 			>
 			<f:content>
-				<core:Title text="Address" />
-				<Label text="Name" />
-				<Input id="name" value="{SupplierName}" />
-				<Label text="Street/No." />
-				<Input value="{Street}">
-				</Input>
-				<Input value="{HouseNumber}">
-					<layoutData>
-						<f:ColumnElementData cellsSmall="2" cellsLarge="1" />
-					</layoutData>
-				</Input>
-				<Label text="ZIP Code/City" />
-				<Input value="{ZIPCode}">
-					<layoutData>
-						<f:ColumnElementData cellsSmall="3" cellsLarge="2" />
-					</layoutData>
-				</Input>
-				<Input value="{City}" />
-				<Label text="Country" />
-				<Select id="country" selectedKey="{Country}">
+				<core:Title text="고객정보" />
+				<Label text="고객사" />
+				<Input id="kunnr" value="{Kunnr}" />
+
+				<Label text="여신등급" />
+				<Select id="crert" selectedKey="{Crert}">
 					<items>
 						<core:Item text="England" key="England"/>
 						<core:Item text="Germany" key="Germany"/>
@@ -247,6 +233,7 @@
 				</Select>
 				<Label text="Web" />
 				<Input value="{Url}" type="Url"/>
+
 				<core:Title text="Contact" />
 				<Label text="Twitter" />
 				<Input value="{Twitter}" />
@@ -254,6 +241,7 @@
 				<Input value="{Email}" type="Email"/>
 				<Label text="Tel." />
 				<Input value="{Tel}" type="Tel"/>
+
 				<core:Title text="Other" />
 				<Label text="SMS" />
 				<Input value="{Sms}" type="Tel"/>

@@ -1,0 +1,67 @@
+<mvc:View displayBlock="true" controllerName="zbapricemanager.controller.Edit" height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page>
+        <content>
+        		<f:SimpleForm id="SimpleFormChangeColumn_threeGroups234"
+			editable="true"
+			layout="ColumnLayout"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+			>
+			<f:toolbar>
+				<Toolbar id="TB1">
+					<Title id="toolbarTitleid" text="고객 정보 변경"/>
+					<ToolbarSpacer />
+					<Button type="Emphasized" text="변경" press="" />
+					<Button type="Emphasized" text="변경 취소" press="onEditCancel" />
+				</Toolbar>
+			</f:toolbar>            
+			<f:content>
+                <!-- 첫번째 열 -->
+				<core:Title text="고객정보" />
+				<Label text="고객번호" />
+				<Input value="{Kunnr}" enabled="false" />
+				<Label text="고객명" />
+				<Input value="{Kutxt}" />
+				<Label text="업종" />
+				<Select id="brsch" selectedKey="{Brsch}">
+					<items>
+						<core:Item text="자동차" key="A"/>
+						<core:Item text="건설" key="B"/>
+					</items>
+				</Select>  
+
+				<!-- 두번째 -->
+				<Label text="대표자명" />
+				<Input value="{Frepre}"/>
+
+				<Label text="출하지점" />
+				<Input value="{Ablad}"/>
+
+				<Label text="여신등급" />
+				<Select id="crert" selectedKey="{Crert}">
+					<items>
+						<core:Item text="A+" key="A+"/>
+                        <core:Item text="A" key="A"/>
+                        <core:Item text="B+" key="B+"/>
+                        <core:Item text="B" key="B"/>
+                        <core:Item text="C" key="C"/>
+					</items>
+				</Select>
+
+				<!-- 세번째 -->
+				<Label text="이메일" />
+				<Input value="{Cemail}" type="Email"/>
+				<Label text="전화번호" />
+				<Input value="{Telp1}" type="Tel"/>
+				<Label text="주소" />
+				<Input value="{Adrnr}"/>
+			</f:content>
+		</f:SimpleForm>
+        </content>
+    </Page>
+
+</mvc:View>

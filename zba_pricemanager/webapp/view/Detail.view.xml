@@ -1,5 +1,6 @@
 <mvc:View displayBlock="true" controllerName="zbapricemanager.controller.Detail" height="100%"
 		xmlns="sap.uxap"
+        xmlns:core="sap.ui.core"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:m="sap.m"
 		xmlns:f="sap.f"
@@ -7,16 +8,14 @@
 
 	<ObjectPageLayout id="ObjectPageLayout"
 					 showTitleInHeaderContent="true"
-					alwaysShowContentHeader="false"
-					preserveHeaderStateOnScroll="false"
-					headerContentPinnable="true"
-					isChildPage="true"
-					upperCaseAnchorBar="false">
+					alwaysShowContentHeader="true"
+                    headerContentPinnable="false"
+                    showAnchorBar="false">
 				<headerTitle>
 					<ObjectPageDynamicHeaderTitle>
-						<expandedHeading>
+						<heading>
 							<m:Title text="{Kutxt}" wrapping="true" class="sapUiSmallMarginEnd"/>
-						</expandedHeading>
+						</heading>
 
 						<!-- <snappedHeading>
 							<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
@@ -37,7 +36,7 @@
 							<m:Button
 									text="Edit"
 									type="Emphasized"
-									press="toggleAreaPriority"/>
+									press="onEdit"/>
 							<m:Button
 									text="Delete"
 									type="Transparent"/>
@@ -46,7 +45,7 @@
 				</headerTitle>
 
 				<headerContent>
-					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+					<m:FlexBox wrap="Wrap" fitContainer="true"  alignItems="Stretch">
 						<!-- <m:Avatar src="../../../../../../../{products>ProductPicUrl}"
 								  displaySize="L"
 								  displayShape="Square"
@@ -61,10 +60,6 @@
 							<m:Text text="{Kutxt}"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="대표자명"/>
-							<m:Text text="{Frepre}"/>
-						</m:VBox>
-						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 							<m:Label text="업종"/>
 							<m:Text text="{= ${Brsch} === 'A' ? '자동차' : '건설'}"/>
 						</m:VBox>
@@ -72,11 +67,11 @@
 				</headerContent>
 
 		<sections>
-			<ObjectPageSection title="지도">
+			<ObjectPageSection title="상세 정보">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<!-- <form:SimpleForm
+							<form:SimpleForm
 								maxContainerCols="2"
 								editable="false"
 								layout="ResponsiveGridLayout"
@@ -87,14 +82,24 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
-									<m:Label text="Product ID"/>
-									<m:Text text="{products>ProductId}"/>
-									<m:Label text="Description"/>
-									<m:Text text="{products>Description}"/>
-									<m:Label text="Supplier"/>
-									<m:Text text="{products>SupplierName}"/>
+									<m:Label text="대표자명"/>
+									<m:Text text="{Frepre}"/>
+									<m:Label text="출하지점"/>
+									<m:Text text="{Ablad}"/>
+									<m:Label text="여신등급"/>
+									<m:Text text="{Crert}">
+                                        <m:customData>
+                                            <core:CustomData key="mydata" value="{= ${Crert} === 'C' ? 'Red' : 'Green'}" writeToDom="true" />
+                                        </m:customData>
+                                    </m:Text>
+									<m:Label text="고객 이메일"/>
+									<m:Text text="{Cemail}"/>
+									<m:Label text="고객 연락처"/>
+									<m:Text text="{Telp1}"/>
+									<m:Label text="주소"/>
+									<m:Text text="{Adrnr}"/>
 								</form:content>
-							</form:SimpleForm> -->
+							</form:SimpleForm>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
