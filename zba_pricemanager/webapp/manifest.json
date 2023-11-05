@@ -119,21 +119,23 @@
         "TargetMain": {
           "viewType": "XML",
           "transition": "slide",
-          "clearControlAggregation": false,
+          "clearControlAggregation": true,
+          "controlAggregation": "beginColumnPages",
           "viewId": "Main",
           "viewName": "Main"
         },
       "TargetDetail" : {
         "viewType": "XML",
-        "transition": "slide",
-        "clearControlAggregation": false,
+        "controlAggregation": "midColumnPages",
+        "clearControlAggregation": true,
         "viewId": "Detail",
         "viewName": "Detail"
         },
         "TargetEdit" : {
           "viewType": "XML",
           "transition": "slide",
-          "clearControlAggregation": false,
+          "controlAggregation": "midColumnPages",
+          "clearControlAggregation": true,
           "viewId": "Edit",
           "viewName": "Edit"
           }

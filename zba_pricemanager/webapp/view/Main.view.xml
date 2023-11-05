@@ -7,7 +7,9 @@
     xmlns:u="sap.ui.unified"
 	xmlns:fb="sap.ui.comp.filterbar"
     xmlns:layout="sap.ui.layout">
-		<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+		<f:FlexibleColumnLayout id="flexibleColumnLayout" layout="TwoColumnsMidExpanded" backgroundDesign="Solid">
+		<f:beginColumnPages>
+					<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
 		<!-- DynamicPage Title -->
 		<f:title>
 			<f:DynamicPageTitle>
@@ -51,4 +53,10 @@
 			</Table>
 		</f:content>
 		</f:DynamicPage>
+		</f:beginColumnPages>
+		<f:midColumnPages>
+			<mvc:XMLView id="detailView" viewName="zbapricemanager.view.Detail"/>
+		</f:midColumnPages>
+	</f:FlexibleColumnLayout>
+
 </mvc:View>

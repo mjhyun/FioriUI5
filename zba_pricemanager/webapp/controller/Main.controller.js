@@ -3,16 +3,16 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "sap/ui/model/Filter",
     "sap/ui/core/Fragment",
+    "sap/f/library"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, FilterOperator, Filter, Fragment) {
+    function (Controller, FilterOperator, Filter, Fragment, fioriLibrary) {
         "use strict";
 
         return Controller.extend("zbapricemanager.controller.Main", {
             onInit: function () {
-
             },
             
             // 리스트 누를때 Detail.view.xml 화면으로 이동
