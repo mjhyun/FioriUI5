@@ -15,9 +15,9 @@
 			columnsXL="4"
 			>
 				<Label text="고객명" />
-				<Input id="" value="{Kutxt}" />
+				<Input value="{view>/Kutxt}" liveChange="onCheckInput" maxLength="6" required="true"/>
 				<Label text="업종" />
-				<Select id="brsch" selectedKey="{Brsch}">
+				<Select id="brsch" selectedKey="{view>/Brsch}" forceSelection="false" required="true" liveChange="onCheckSelect">
 					<items>
 						<c:Item text="자동차" key="A"/>
 						<c:Item text="건설" key="B"/>
@@ -26,13 +26,13 @@
 
 				<!-- 두번째 -->
 				<Label text="대표자명" />
-				<Input value="{Frepre}"/>
+				<Input value="{view>/Frepre}" liveChange="onCheckInput" required="true"/>
 
 				<Label text="출하지점" />
-				<Input value="{Ablad}"/>
+				<Input value="{view>/Ablad}" liveChange="onCheckInput" required="true"/>
 
 				<Label text="여신등급" />
-				<Select id="crert" selectedKey="{Crert}">
+				<Select id="crert" selectedKey="{view>/Crert}" forceSelection="false" required="true" liveChange="onCheckSelect">
 					<items>
 						<c:Item text="A+" key="A+"/>
                         <c:Item text="A" key="A"/>
@@ -44,11 +44,11 @@
 
 				<!-- 세번째 -->
 				<Label text="이메일" />
-				<Input value="{Cemail}" type="Email"/>
+				<Input value="{view>/Cemail}" type="Email" required="true"/>
 				<Label text="전화번호" />
-				<Input value="{Telp1}" type="Tel"/>
+				<Input value="{view>/Telp1}" type="Tel" required="true"/>
 				<Label text="주소" />
-				<Input value="{Adrnr}"/>
+				<Input value="{view>/Adrnr}" required="true"/>
             </f:SimpleForm>
             <beginButton>
                 <Button text="추가" press="onInsert" />

@@ -98,20 +98,21 @@
           "pattern": ":?query:",
           "target": [
             "TargetMain"
+
           ]
         },
         {
           "name": "RouteDetail",
           "pattern": "detail/{paramCust}",
           "target": [
-            "TargetDetail"
+            "TargetMain"
           ]
         },
         {
           "name": "RouteEdit",
           "pattern": "Edit/{paramCust}",
           "target": [
-            "TargetEdit"
+            "TargetMain"
           ]
         }
       ],
@@ -119,23 +120,20 @@
         "TargetMain": {
           "viewType": "XML",
           "transition": "slide",
-          "clearControlAggregation": true,
-          "controlAggregation": "beginColumnPages",
+          "clearControlAggregation": false,
           "viewId": "Main",
           "viewName": "Main"
         },
       "TargetDetail" : {
         "viewType": "XML",
-        "controlAggregation": "midColumnPages",
-        "clearControlAggregation": true,
+        "clearControlAggregation": false,
         "viewId": "Detail",
         "viewName": "Detail"
         },
         "TargetEdit" : {
           "viewType": "XML",
           "transition": "slide",
-          "controlAggregation": "midColumnPages",
-          "clearControlAggregation": true,
+          "clearControlAggregation": false,
           "viewId": "Edit",
           "viewName": "Edit"
           }

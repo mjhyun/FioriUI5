@@ -54,6 +54,8 @@ sap.ui.define([
                 var oModel = this.getView().getModel('view') // input 모델 가져옴
                 var oBody = oModel.getData()
 
+                console.log(oBody)
+
                 oDataModel.create('/MemberSet', oBody, {
                     success: function() {
                         oDataModel.refresh(true)

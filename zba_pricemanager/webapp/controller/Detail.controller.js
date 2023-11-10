@@ -9,6 +9,9 @@ sap.ui.define([
 
         return Controller.extend("zbapricemanager.controller.Detail", {
             onInit: function () {
+                if (this.getView().byId("idHtitle").getText() == "") {
+                    // 빈화면
+                }
                 var oRouter = this.getOwnerComponent().getRouter();
                 oRouter.getRoute("RouteDetail").attachPatternMatched(this._patternMatched, this)
             },
@@ -17,7 +20,6 @@ sap.ui.define([
                 // 파라미터로 받은 값 가져오기
                 var oParam = oEvent.getParameters().arguments;
                 this.getView().bindElement(`/ZBA_SDT010Set('${oParam.paramCust}')`);
-
 
                 //oParam 안에는 manifest.json에 등록된
                 //RouteDetail의 Parameter의 값들이 있음
@@ -30,10 +32,28 @@ sap.ui.define([
             },
 
             onEdit: function(oEvent) {
+                this.getOwnerComponent().byId("Main").byId("flexibleColumnLayout").setLayout("ThreeColumnsMidExpanded")
                 var oRouter = this.getOwnerComponent().getRouter();
                 var getParam = oEvent.getSource().getBindingContext().getObject().Kunnr
 
-                oRouter.navTo("RouteEdit", {paramCust: getParam});                
-            }
+                oRouter.navTo("RouteEdit", {paramCust: getParam});
+            },
+
+            onDelete: function() {
+                var oDataModel = this.getOwnerComponent().getModel()
+                
+                var oData = {
+                    Kunnr : this.getView().byId("kunnr_detail").getText(),
+                    Delet : 'X'
+                }
+
+                oDataModel.update(`/ZBA_SDT010Set('${oData.Kunnr}')`, oData, {
+                    success: function() {
+                        oDataModel.refresh(true)
+                        console.log("성공")
+                    },
+                    error: function() {}
+                })                
+            },
         })
     });

@@ -14,7 +14,7 @@
 				<headerTitle>
 					<ObjectPageDynamicHeaderTitle>
 						<heading>
-							<m:Title text="{Kutxt}" wrapping="true" class="sapUiSmallMarginEnd"/>
+							<m:Title id="idHtitle" text="{Kutxt}" wrapping="true" class="sapUiSmallMarginEnd"/>
 						</heading>
 
 						<!-- <snappedHeading>
@@ -39,7 +39,8 @@
 									press="onEdit"/>
 							<m:Button
 									text="Delete"
-									type="Transparent"/>
+									type="Transparent"
+									press="onDelete" />
 						</actions>
 					</ObjectPageDynamicHeaderTitle>
 				</headerTitle>
@@ -53,7 +54,7 @@
 						</m:Avatar> -->
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 							<m:Label text="고객번호"/>
-							<m:Text text="{Kunnr}"/>
+							<m:Text id="kunnr_detail" text="{Kunnr}"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 							<m:Label text="고객명"/>
@@ -61,7 +62,7 @@
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 							<m:Label text="업종"/>
-							<m:Text text="{= ${Brsch} === 'A' ? '자동차' : '건설'}"/>
+							<m:Text text="{= ${Brsch} === 'A' ? '자동차' : ${Brsch} === 'B' ? '건설' : '' }"/>
 						</m:VBox>
 					</m:FlexBox>
 				</headerContent>

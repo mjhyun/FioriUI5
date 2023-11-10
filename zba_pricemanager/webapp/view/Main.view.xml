@@ -22,13 +22,12 @@
 		<!-- DynamicPage Content -->
 		<f:content>
 			<Table
+				sticky="HeaderToolbar"
 				id="CustomerTable"
 				mode="SingleSelectMaster"
 				itemPress="onListItemPress"
 				inset="false"
-				items="{
-					path: '/ZBA_SDT010Set'
-				}"
+				items="{/ZBA_SDT010Set}"
 				class="sapFDynamicPageAlignContent"
 				width="auto">
 				<headerToolbar>
@@ -57,6 +56,9 @@
 		<f:midColumnPages>
 			<mvc:XMLView id="detailView" viewName="zbapricemanager.view.Detail"/>
 		</f:midColumnPages>
+		<f:endColumnPages>
+			<mvc:XMLView id="EditView" viewName="zbapricemanager.view.Edit"/>
+		</f:endColumnPages>
 	</f:FlexibleColumnLayout>
 
 </mvc:View>

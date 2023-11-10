@@ -15,7 +15,7 @@
 				<Toolbar id="TB1">
 					<Title id="toolbarTitleid" text="고객 정보 변경"/>
 					<ToolbarSpacer />
-					<Button type="Emphasized" text="변경" press="" />
+					<Button type="Emphasized" text="변경" press="onUpdate" />
 					<Button type="Emphasized" text="변경 취소" press="onEditCancel" />
 				</Toolbar>
 			</f:toolbar>            
@@ -23,11 +23,11 @@
                 <!-- 첫번째 열 -->
 				<core:Title text="고객정보" />
 				<Label text="고객번호" />
-				<Input value="{Kunnr}" enabled="false" />
+				<Input id="kunnr" value="{Kunnr}" enabled="false" required="true" />
 				<Label text="고객명" />
-				<Input value="{Kutxt}" />
+				<Input id="kutxt" value="{Kutxt}" required="true"/>
 				<Label text="업종" />
-				<Select id="brsch" selectedKey="{Brsch}">
+				<Select id="brsch" selectedKey="{Brsch}" required="true">
 					<items>
 						<core:Item text="자동차" key="A"/>
 						<core:Item text="건설" key="B"/>
@@ -36,13 +36,13 @@
 
 				<!-- 두번째 -->
 				<Label text="대표자명" />
-				<Input value="{Frepre}"/>
+				<Input id="frepre" value="{Frepre}" required="true"/>
 
 				<Label text="출하지점" />
-				<Input value="{Ablad}"/>
+				<Input id="ablad" value="{Ablad}" required="true"/>
 
 				<Label text="여신등급" />
-				<Select id="crert" selectedKey="{Crert}">
+				<Select id="crert" selectedKey="{Crert}" required="true">
 					<items>
 						<core:Item text="A+" key="A+"/>
                         <core:Item text="A" key="A"/>
@@ -54,11 +54,11 @@
 
 				<!-- 세번째 -->
 				<Label text="이메일" />
-				<Input value="{Cemail}" type="Email"/>
+				<Input id="cemail" value="{Cemail}" type="Email" required="true"/>
 				<Label text="전화번호" />
-				<Input value="{Telp1}" type="Tel"/>
+				<Input id="telp1" value="{Telp1}" type="Tel" required="true"/>
 				<Label text="주소" />
-				<Input value="{Adrnr}"/>
+				<Input id="adrnr" value="{Adrnr}" required="true"/>
 			</f:content>
 		</f:SimpleForm>
         </content>
