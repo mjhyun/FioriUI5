@@ -123,6 +123,11 @@ sap.ui.define([
             },
             
             onAddrSearch: function () {
+                var s = document.createElement("script");
+                s.type = "text/javascript";
+                s.src = "http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+                $("head").append(s);
+              
                 var addr = '';
                 var themeObj = { searchBgColor: "#0B65C8", queryTextColor: "#FFFFFF" } // 적용할 테마
                 new daum.Postcode({
