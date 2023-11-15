@@ -32,6 +32,7 @@ sap.ui.define([
             },
 
             onSearch: function(oEvent) {
+                
                 var inputNm = this.byId("searchInput").getValue();
                 var bindItem = this.byId("CustomerTable").getBinding('items')
 
@@ -56,8 +57,8 @@ sap.ui.define([
                     name: 'zbapricemanager.view.fragment.Add',
                     type: 'XML',
                     controller : this
-                    }).then(function(oDialog) {
-                        oDialog.open();
+                    }).then(function() {
+                        sap.ui.getCore().byId("customerDialog").open();
                     }.bind(this));
                 }
             },
@@ -119,6 +120,17 @@ sap.ui.define([
                 } else {
                     oEvent.getSource().setValueState(sap.ui.core.ValueState.None)
                   }              
-            }            
+            },
+            
+            onAddrSearch: function () {
+                var themeObj = { searchBgColor: "#0B65C8", queryTextColor: "#FFFFFF" } // 적용할 테마
+                new daum.Postcode({
+                    theme: themeObj,
+                    oncomplete: function(data) { // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드
+                        return data
+                    }
+                    
+                }).open({ popupTitle: '고객사 주소 검색' });
+            }
         });
     });

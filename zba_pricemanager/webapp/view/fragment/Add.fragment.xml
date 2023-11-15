@@ -5,7 +5,7 @@
 
     <Dialog id="customerDialog" title="고객 추가" resizable="true"
         afterOpen="onAfterOpen"
-        contentHeight="40%"
+        contentHeight="50%"
         contentWidth="50%">
         <f:SimpleForm id="addSimpleForm"
 			editable="true"
@@ -48,7 +48,7 @@
 				<Label text="전화번호" />
 				<Input value="{view>/Telp1}" type="Tel" required="true"/>
 				<Label text="주소" />
-				<Input value="{view>/Adrnr}" required="true"/>
+				<SearchField id="searchInput" value="{view>/Adrnr}" search="onAddrSearch" placeholder="주소 검색 by Daum Kakao"/>
             </f:SimpleForm>
             <beginButton>
                 <Button text="추가" press="onInsert" />
