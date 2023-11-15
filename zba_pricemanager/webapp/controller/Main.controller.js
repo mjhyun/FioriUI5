@@ -123,11 +123,17 @@ sap.ui.define([
             },
             
             onAddrSearch: function () {
+                var addr = '';
                 var themeObj = { searchBgColor: "#0B65C8", queryTextColor: "#FFFFFF" } // 적용할 테마
                 new daum.Postcode({
                     theme: themeObj,
                     oncomplete: function(data) { // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드
-                        return data
+                        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                            addr = data.roadAddress;
+                        } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                            addr = data.jibunAddress;
+                        }
+                        sap.ui.getCore().byId("searchInput").setValue(addr)                        
                     }
                     
                 }).open({ popupTitle: '고객사 주소 검색' });
