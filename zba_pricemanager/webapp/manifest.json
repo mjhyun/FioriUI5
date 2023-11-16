@@ -80,6 +80,12 @@
         {
           "uri": "css/style.css"
         }
+      ],
+      "js": [
+        {
+          "uri": "libs/postcode.v2.js",
+          "uri2": "libs/maps.js?ncpClientId=2bmdrpiaro&submodules=geocoder"  
+        }
       ]
     },
     "routing": {
