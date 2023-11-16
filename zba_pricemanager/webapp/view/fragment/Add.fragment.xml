@@ -48,7 +48,7 @@
 				<Label text="전화번호" />
 				<Input value="{view>/Telp1}" type="Tel" required="true"/>
 				<Label text="주소" />
-				<SearchField id="searchInput" value="{view>/Adrnr}" search="onAddrSearch" placeholder="주소 검색 by Daum Kakao"/>
+				<SearchField id="searchInput" value="{view>/Adrnr}" search="onAddrSearch" placeholder="검색 버튼을 눌러주세요 by Daum Kakao"/>
             </f:SimpleForm>
             <beginButton>
                 <Button text="추가" press="onInsert" />
