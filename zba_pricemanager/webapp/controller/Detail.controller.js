@@ -9,9 +9,6 @@ sap.ui.define([
 
         return Controller.extend("zbapricemanager.controller.Detail", {
             onInit: function () {
-                if (this.getView().byId("idHtitle").getText() == "") {
-                    // 빈화면
-                }
                 var oRouter = this.getOwnerComponent().getRouter();
                 oRouter.getRoute("RouteDetail").attachPatternMatched(this._patternMatched, this)
             },
@@ -24,6 +21,26 @@ sap.ui.define([
                 //oParam 안에는 manifest.json에 등록된
                 //RouteDetail의 Parameter의 값들이 있음
                 //{paramOrder: 'OrderID', param2: undefined}
+
+                var mapOps = document.getElementById('__section1-innerGrid');
+                // var mapOps = this.getView().byId("")
+                var map = new naver.maps.Map(mapOps);
+
+                debugger;
+                var queryMap = this.getView().byId("idAddr").getText()
+                console.log(queryMap)
+
+                naver.maps.Service.geocode({
+                    query: queryMap
+                }, function(status, response) {
+                    if (status !== naver.maps.Service.Status.OK) {
+                        return alert('Something wrong!');
+                    }
+            
+                    var result = response.v2, // 검색 결과의 컨테이너
+                        items = result.addresses; // 검색 결과의 배열
+                    console.log(items)
+            })
             },
 
             onNavMain: function() { // 뒤로가기 버튼

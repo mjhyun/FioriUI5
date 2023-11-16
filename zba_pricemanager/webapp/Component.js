@@ -29,6 +29,11 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+
+                // set External Script
+                let mapScript = document.createElement('script');
+                mapScript.setAttribute('src', 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2bmdrpiaro&submodules=geocoder');
+                document.head.appendChild(mapScript);
             }
         });
     }

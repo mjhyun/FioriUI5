@@ -1,4 +1,4 @@
-<mvc:View displayBlock="true" controllerName="zbapricemanager.controller.Detail" height="100%"
+<mvc:View xmlns:vk="sap.ui.vk" displayBlock="true" controllerName="zbapricemanager.controller.Detail" height="100%"
 		xmlns="sap.uxap"
         xmlns:core="sap.ui.core"
 		xmlns:mvc="sap.ui.core.mvc"
@@ -97,10 +97,27 @@
 									<m:Text text="{Cemail}"/>
 									<m:Label text="고객 연락처"/>
 									<m:Text text="{Telp1}"/>
-									<m:Label text="주소"/>
-									<m:Text text="{Adrnr}"/>
+									<m:Label  text="주소"/>
+									<m:Text id="idAddr" text="{Adrnr}"/>
 								</form:content>
 							</form:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+
+					<ObjectPageSubSection title="지도">
+						<blocks>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
+							<m:Label text=""/>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
