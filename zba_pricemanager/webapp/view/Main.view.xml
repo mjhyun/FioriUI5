@@ -1,4 +1,4 @@
-<mvc:View controllerName="zbapricemanager.controller.Main"
+<mvc:View xmlns:rowmodes="sap.ui.table.rowmodes" controllerName="zbapricemanager.controller.Main"
     xmlns:c="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"

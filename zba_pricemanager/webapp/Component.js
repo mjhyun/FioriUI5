@@ -30,10 +30,15 @@ sap.ui.define([
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
 
-                // set External Script
+                // set External Script (Map)
                 let mapScript = document.createElement('script');
                 mapScript.setAttribute('src', 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2bmdrpiaro&submodules=geocoder');
                 document.head.appendChild(mapScript);
+
+                // set External Script (Postcode)
+                let pcScript = document.createElement('script');
+                pcScript.setAttribute('src', 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js');
+                document.head.appendChild(pcScript);
             }
         });
     }

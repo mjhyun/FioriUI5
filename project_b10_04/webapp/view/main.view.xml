@@ -4,6 +4,7 @@
     xmlns:t="sap.ui.table">
     <Page id="page" title="{i18n>title}">
         <content>
+
             <t:Table
 				id = "tableId"
 				rows="{/list}"
