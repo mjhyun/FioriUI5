@@ -1,10 +1,12 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/m/MessageBox",
+	"sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, MessageBox, MessageToast) {
         "use strict";
 
         return Controller.extend("zbapricemanager.controller.Detail", {
@@ -54,15 +56,15 @@ sap.ui.define([
             },
 
             onEdit: function(oEvent) {
-                if (this.getView().byId("kunnr_detail").getText()) {
-                    
+                if (!this.getView().byId("kunnr_detail").getText()) {
+                    MessageToast.show("수정할 수 없습니다.");
                 } else {
                 this.getOwnerComponent().byId("Main").byId("flexibleColumnLayout").setLayout("ThreeColumnsMidExpanded")
                 var oRouter = this.getOwnerComponent().getRouter();
                 var getParam = oEvent.getSource().getBindingContext().getObject().Kunnr
 
                 oRouter.navTo("RouteEdit", {paramCust: getParam});
-            }
+                }
             },
 
             onDelete: function() {

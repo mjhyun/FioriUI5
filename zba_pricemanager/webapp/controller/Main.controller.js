@@ -4,12 +4,14 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "sap/ui/model/Filter",
     "sap/ui/core/Fragment",
-    "sap/f/library"
+    "sap/f/library",
+    "sap/m/MessageBox",
+	"sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, FilterOperator, Filter, Fragment, fioriLibrary) {
+    function (Controller, JSONModel, FilterOperator, Filter, Fragment, fioriLibrary, MessageBox, MessageToast) {
         "use strict";
 
         return Controller.extend("zbapricemanager.controller.Main", {
@@ -65,6 +67,11 @@ sap.ui.define([
 
             // Table Insert
             onInsert: function(oEvent) {
+                MessageBox.warning("정말 추가하시겠습니까?", {
+                    actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+                    emphasizedAction: MessageBox.Action.OK,
+                    onClose: function (sAction) {
+                        if (sAction == 'OK') {
                 var oDataModel = this.getOwnerComponent().getModel();
                 var oModel = sap.ui.getCore().getModel('view') // input 모델 가져옴
                 var oBody = oModel.getData()
@@ -78,7 +85,9 @@ sap.ui.define([
                         console.log('Error 발생');
                     }
                 }) // '경로(EntitiySetName)', {생성할데이터}, {설정}
-            },
+                }
+            }
+        })},
 
             // input 필드 초기화
             onAfterOpen: function() {

@@ -1,11 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
+	"sap/m/MessageBox",
+	"sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel, MessageBox, MessageToast) {
         "use strict";
 
         return Controller.extend("zbapricemanager.controller.Edit", {
@@ -23,28 +25,35 @@ sap.ui.define([
             },
 
             onUpdate: function() {
-                var oDataModel = this.getOwnerComponent().getModel()
+                MessageBox.warning("정말 수정하시겠습니까?", {
+                    actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+                    emphasizedAction: MessageBox.Action.OK,
+                    onClose: function (sAction) {
+                        if (sAction == 'OK') {
+                        var oDataModel = this.getOwnerComponent().getModel()
 
-                var oData = {
-                    Kunnr: this.getView().byId("kunnr").getValue(),
-                    Kutxt: this.getView().byId("kutxt").getValue(),
-                    Brsch: this.getView().byId("brsch").getSelectedItem().getKey(),
-                    Frepre: this.getView().byId("frepre").getValue(),
-                    Ablad: this.getView().byId("ablad").getValue(),
-                    Crert: this.getView().byId("crert").getSelectedItem().getKey(),
-                    Cemail: this.getView().byId("cemail").getValue(),
-                    Telp1: this.getView().byId("telp1").getValue(),
-                    Adrnr: this.getView().byId("adrnr").getValue()
+                        var oData = {
+                            Kunnr: this.getView().byId("kunnr").getValue(),
+                            Kutxt: this.getView().byId("kutxt").getValue(),
+                            Brsch: this.getView().byId("brsch").getSelectedItem().getKey(),
+                            Frepre: this.getView().byId("frepre").getValue(),
+                            Ablad: this.getView().byId("ablad").getValue(),
+                            Crert: this.getView().byId("crert").getSelectedItem().getKey(),
+                            Cemail: this.getView().byId("cemail").getValue(),
+                            Telp1: this.getView().byId("telp1").getValue(),
+                            Adrnr: this.getView().byId("adrnr").getValue()
+                        }
+
+                        oDataModel.update(`/ZBA_SDT010Set('${oData.Kunnr}')`, oData, {
+                            success: function() {
+                                oDataModel.refresh(true)
+                                console.log("성공")
+                            },
+                            error: function() {}
+                        })
                 }
-
-                oDataModel.update(`/ZBA_SDT010Set('${oData.Kunnr}')`, oData, {
-                    success: function() {
-                        oDataModel.refresh(true)
-                        console.log("성공")
-                    },
-                    error: function() {}
-                })
-            },
+            }
+        })},
 
             onCheckInput: function (oEvent) { // 유효성 검사
                 var inputValue = oEvent.getSource().getValue()
