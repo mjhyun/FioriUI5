@@ -11,6 +11,7 @@ sap.ui.define([
             onInit: function () {
                 var oRouter = this.getOwnerComponent().getRouter();
                 oRouter.getRoute("RouteDetail").attachPatternMatched(this._patternMatched, this)
+                this.getOwnerComponent().getModel().refresh(true)
             },
 
             _patternMatched: function(oEvent) {
@@ -18,17 +19,8 @@ sap.ui.define([
                 var oParam = oEvent.getParameters().arguments;
                 this.getView().bindElement(`/ZBA_SDT010Set('${oParam.paramCust}')`);
 
-                //oParam 안에는 manifest.json에 등록된
-                //RouteDetail의 Parameter의 값들이 있음
-                //{paramOrder: 'OrderID', param2: undefined}
-
                 var mapOps = document.getElementById('__section1-innerGrid');
-                // var mapOps = this.getView().byId("")
-                var map = new naver.maps.Map(mapOps);
-
-                debugger;
                 var queryMap = this.getView().byId("idAddr").getText()
-                console.log(queryMap)
 
                 naver.maps.Service.geocode({
                     query: queryMap
@@ -36,11 +28,24 @@ sap.ui.define([
                     if (status !== naver.maps.Service.Status.OK) {
                         return alert('Something wrong!');
                     }
-            
                     var result = response.v2, // 검색 결과의 컨테이너
-                        items = result.addresses; // 검색 결과의 배열
-                    console.log(items)
-            })
+                    items = result.addresses; // 검색 결과의 배열
+                    return this.onMap(items);
+            }.bind(this))
+            },
+
+            onMap: function(items) { // 지도
+                var mapOps = document.getElementById('__box1');
+                var x = items[0].x
+                var y = items[0].y
+
+                var mapLat = new naver.maps.LatLng(y,x) // 좌표 지정
+                var map = new naver.maps.Map(mapOps, {center: mapLat, zoom: 19}) // 지도 호출
+                
+                var marker = new naver.maps.Marker({ // 마커 지정
+                    map: map,
+                    position: mapLat
+                });
             },
 
             onNavMain: function() { // 뒤로가기 버튼

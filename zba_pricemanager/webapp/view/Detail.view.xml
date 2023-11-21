@@ -83,6 +83,8 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
+									<m:Label text="사업자등록번호"/>
+									<m:Text text="{Stceg}"/>
 									<m:Label text="대표자명"/>
 									<m:Text text="{Frepre}"/>
 									<m:Label text="출하지점"/>

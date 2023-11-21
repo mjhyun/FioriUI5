@@ -9,10 +9,8 @@
         contentWidth="50%">
         <f:SimpleForm id="addSimpleForm"
 			editable="true"
-			layout="ColumnLayout"
-			columnsM="2"
-			columnsL="3"
-			columnsXL="4"
+			layout="ResponsiveGridLayout"
+			columnsM="1"
 			>
 				<Label text="고객명" />
 				<Input value="{view>/Kutxt}" liveChange="onCheckInput" maxLength="6" required="true"/>
@@ -25,8 +23,11 @@
 				</Select>  
 
 				<!-- 두번째 -->
+				<Label text="사업자등록번호 (xxx-xx-xxxxx)" />
+				<Input value="{view>/Stceg}" liveChange="onCheckInput" type="Tel" maxLength="12" required="true"/>
+
 				<Label text="대표자명" />
-				<Input value="{view>/Frepre}" liveChange="onCheckInput" required="true"/>
+				<Input value="{view>/Frepre}" liveChange="onCheckInput" maxLength="4" required="true"/>
 
 				<Label text="출하지점" />
 				<Input value="{view>/Ablad}" liveChange="onCheckInput" required="true"/>
@@ -44,9 +45,9 @@
 
 				<!-- 세번째 -->
 				<Label text="이메일" />
-				<Input value="{view>/Cemail}" type="Email" required="true"/>
+				<Input value="{view>/Cemail}" liveChange="onCheckInput" type="Email" required="true"/>
 				<Label text="전화번호" />
-				<Input value="{view>/Telp1}" type="Tel" required="true"/>
+				<Input value="{view>/Telp1}" liveChange="onCheckInput" maxLength="13" type="Tel" required="true"/>
 				<Label text="주소" />
 				<SearchField id="searchInput" value="{view>/Adrnr}" search="onAddrSearch" placeholder="검색 버튼을 눌러주세요 by Daum Kakao"/>
             </f:SimpleForm>
