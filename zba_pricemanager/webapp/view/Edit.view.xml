@@ -23,9 +23,9 @@
                 <!-- 첫번째 열 -->
 				<core:Title text="고객정보" />
 				<Label text="고객번호" />
-				<Input id="kunnr" value="{Kunnr}" enabled="false" required="true" />
+				<Input id="kunnr" value="{Kunnr}" liveChange="onCheckInput" enabled="false" required="true" />
 				<Label text="고객명" />
-				<Input id="kutxt" value="{Kutxt}" required="true"/>
+				<Input id="kutxt" value="{Kutxt}" liveChange="onCheckInput" maxLength="8" required="true"/>
 				<Label text="업종" />
 				<Select id="brsch" selectedKey="{Brsch}" required="true">
 					<items>
@@ -35,11 +35,14 @@
 				</Select>  
 
 				<!-- 두번째 -->
+				<Label text="사업자등록번호" />
+				<Input id="stceg" value="{Stceg}" type="Tel" maxLength="12" liveChange="onCheckInput" required="true" />
+
 				<Label text="대표자명" />
-				<Input id="frepre" value="{Frepre}" required="true"/>
+				<Input id="frepre" value="{Frepre}" liveChange="onCheckInput" maxLength="4" required="true"/>
 
 				<Label text="출하지점" />
-				<Input id="ablad" value="{Ablad}" required="true"/>
+				<Input id="ablad" value="{Ablad}" liveChange="onCheckInput" required="true"/>
 
 				<Label text="여신등급" />
 				<Select id="crert" selectedKey="{Crert}" required="true">
@@ -54,11 +57,11 @@
 
 				<!-- 세번째 -->
 				<Label text="이메일" />
-				<Input id="cemail" value="{Cemail}" type="Email" required="true"/>
+				<Input id="cemail" value="{Cemail}" type="Email" liveChange="onCheckInput" required="true"/>
 				<Label text="전화번호" />
-				<Input id="telp1" value="{Telp1}" type="Tel" required="true"/>
+				<Input id="telp1" value="{Telp1}" type="Tel" liveChange="onCheckInput" required="true"/>
 				<Label text="주소" />
-				<Input id="adrnr" value="{Adrnr}" required="true"/>
+				<Input id="adrnr" value="{Adrnr}" liveChange="onCheckInput" required="true"/>
 			</f:content>
 		</f:SimpleForm>
         </content>

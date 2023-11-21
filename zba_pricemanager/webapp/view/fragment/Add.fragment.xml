@@ -13,7 +13,7 @@
 			columnsM="1"
 			>
 				<Label text="고객명" />
-				<Input value="{view>/Kutxt}" liveChange="onCheckInput" maxLength="6" required="true"/>
+				<Input value="{view>/Kutxt}" liveChange="onCheckInput" maxLength="8" required="true"/>
 				<Label text="업종" />
 				<Select id="brsch" selectedKey="{view>/Brsch}" forceSelection="false" required="true" liveChange="onCheckSelect">
 					<items>

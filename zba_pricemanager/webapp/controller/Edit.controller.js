@@ -46,6 +46,38 @@ sap.ui.define([
                 })
             },
 
+            onCheckInput: function (oEvent) { // 유효성 검사
+                var inputValue = oEvent.getSource().getValue()
+                var inputId = oEvent.getSource().getId()
+                console.log(inputId)
+                console.log(inputValue)
+
+                if(!inputValue){
+                    oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
+                    oEvent.getSource().setValueStateText("해당 필드는 비워둘 수 없습니다.")
+                } else if(inputId == "application-zbapricemanager-display-component---Main--EditView--cemail"){ // 이메일
+                    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+                    if (!regExp.test(inputValue)){
+                        oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
+                        oEvent.getSource().setValueStateText("잘못된 이메일 주소입니다.")                        
+                    } else {
+                        oEvent.getSource().setValueState(sap.ui.core.ValueState.None)
+                    }
+                } else {
+                    oEvent.getSource().setValueState(sap.ui.core.ValueState.None)
+                }
+
+                if (inputId == "application-zbapricemanager-display-component---Main--EditView--telp1"){ // 전화번호
+                var inputValue2 = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+                oEvent.getSource().setValue(inputValue2)
+                }
+
+                if (inputId == "application-zbapricemanager-display-component---Main--EditView--stceg"){ // 사업자번호
+                    var sValue = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{2})(\d{5})$/, `$1-$2-$3`);
+                    oEvent.getSource().setValue(sValue)
+                    }
+            },
+
             onEditCancel: function(oEvent) { // 변경 취소 버튼
                 this.getOwnerComponent().byId("Main").byId("flexibleColumnLayout").setLayout("TwoColumnsMidExpanded")
                 // var oRouter = this.getOwnerComponent().getRouter();

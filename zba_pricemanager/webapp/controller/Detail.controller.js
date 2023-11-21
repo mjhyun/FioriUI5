@@ -54,11 +54,15 @@ sap.ui.define([
             },
 
             onEdit: function(oEvent) {
+                if (this.getView().byId("kunnr_detail").getText()) {
+                    
+                } else {
                 this.getOwnerComponent().byId("Main").byId("flexibleColumnLayout").setLayout("ThreeColumnsMidExpanded")
                 var oRouter = this.getOwnerComponent().getRouter();
                 var getParam = oEvent.getSource().getBindingContext().getObject().Kunnr
 
                 oRouter.navTo("RouteEdit", {paramCust: getParam});
+            }
             },
 
             onDelete: function() {

@@ -92,7 +92,7 @@ sap.ui.define([
                 oEvent.getSource().getParent().close();
             },
 
-            onCheckInput: function (oEvent) {
+            onCheckInput: function (oEvent) { // 유효성 검사
                 var inputValue = oEvent.getSource().getValue()
                 var inputId = oEvent.getSource().getId()
                 console.log(inputId)
@@ -101,9 +101,6 @@ sap.ui.define([
                 if(!inputValue){
                     oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
                     oEvent.getSource().setValueStateText("해당 필드는 비워둘 수 없습니다.")
-                } else if (inputId == "__input0" && inputValue.length > 6){
-                    oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
-                    oEvent.getSource().setValueStateText("해당 필드는 6자리 까지만 입력가능합니다.")
                 } else if(inputId == "__input4"){ // 이메일
                     var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
                     if (!regExp.test(inputValue)){
@@ -112,13 +109,20 @@ sap.ui.define([
                     } else {
                         oEvent.getSource().setValueState(sap.ui.core.ValueState.None)
                     }
-                } else if(inputId == "__input5"){ // 전화번호
-                    var inputValue2 = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
-                    oEvent.getSource().setValue(inputValue2)
                 } else {
                     oEvent.getSource().setValueState(sap.ui.core.ValueState.None)
-                  }
-                
+                }
+
+                if (inputId == "__input5"){ // 전화번호
+                var inputValue2 = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+                oEvent.getSource().setValue(inputValue2)
+                }
+
+                if (inputId == "__input1"){ // 사업자번호
+                    var sValue = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{2})(\d{5})$/, `$1-$2-$3`);
+                    oEvent.getSource().setValue(sValue)
+                    }
+
 
             },
 
