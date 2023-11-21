@@ -105,20 +105,8 @@
 					</ObjectPageSubSection>
 
 					<ObjectPageSubSection title="지도">
-						<blocks>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-							<m:Label text=""/>
-						</blocks>
+					<m:FlexBox height="400px">
+					</m:FlexBox>
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
