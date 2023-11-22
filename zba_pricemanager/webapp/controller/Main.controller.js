@@ -67,15 +67,18 @@ sap.ui.define([
 
             // Table Insert
             onInsert: function(oEvent) {
+                var oDataModel = this.getOwnerComponent().getModel();
+                var oModel = sap.ui.getCore().getModel('view') // input 모델 가져옴
+                var oBody = oModel.getData()
+                debugger;
+                if (Object.values(oBody).length == 0) {
+                    MessageToast.show("모든 필드를 채워주세요")
+                } else {
                 MessageBox.warning("정말 추가하시겠습니까?", {
                     actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
                     emphasizedAction: MessageBox.Action.OK,
                     onClose: function (sAction) {
                         if (sAction == 'OK') {
-                            var oDataModel = this.getOwnerComponent().getModel();
-                            var oModel = sap.ui.getCore().getModel('view') // input 모델 가져옴
-                            var oBody = oModel.getData()
-
                             oDataModel.create('/ZBA_SDT010Set', oBody, {
                                 success: function() {
                                     oDataModel.refresh(true)
@@ -87,7 +90,9 @@ sap.ui.define([
                             })
                         }
                     }.bind(this)
-            })},
+                    })
+                }
+            },
 
             // input 필드 초기화
             onAfterOpen: function() {

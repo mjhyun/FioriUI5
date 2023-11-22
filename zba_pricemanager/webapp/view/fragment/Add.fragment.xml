@@ -5,12 +5,12 @@
 
     <Dialog id="customerDialog" title="고객 추가" resizable="true"
         afterOpen="onAfterOpen"
-        contentHeight="50%"
+        contentHeight="60%"
         contentWidth="50%">
         <f:SimpleForm id="addSimpleForm"
 			editable="true"
-			layout="ResponsiveGridLayout"
-			columnsM="1"
+			layout="ColumnLayout"
+			columnsM="2"
 			>
 				<Label text="고객명" />
 				<Input value="{view>/Kutxt}" liveChange="onCheckInput" maxLength="8" required="true"/>
