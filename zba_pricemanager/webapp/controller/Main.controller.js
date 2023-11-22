@@ -135,9 +135,10 @@ sap.ui.define([
 
             },
             
-            onAddrSearch: function () {
+            onAddrSearch: function (oEvent) {
                 var addr = '';
                 var themeObj = { searchBgColor: "#0B65C8", queryTextColor: "#FFFFFF" } // 적용할 테마
+                if (oEvent.getParameters().searchButtonPressed) {
                 new daum.Postcode({
                     theme: themeObj,
                     oncomplete: function(data) { // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드
@@ -148,8 +149,8 @@ sap.ui.define([
                         }
                         sap.ui.getCore().byId("searchInput").setValue(addr)                        
                     }
-                    
-                }).open({ popupTitle: '고객사 주소 검색' });
+                    }).open({ popupTitle: '고객사 주소 검색' });
+                }
             }
         });
     });
