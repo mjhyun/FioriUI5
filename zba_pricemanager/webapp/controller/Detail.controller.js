@@ -21,7 +21,6 @@ sap.ui.define([
                 var oParam = oEvent.getParameters().arguments;
                 this.getView().bindElement(`/ZBA_SDT010Set('${oParam.paramCust}')`);
 
-                var mapOps = document.getElementById('__section1-innerGrid');
                 var queryMap = this.getView().byId("idAddr").getText()
 
                 naver.maps.Service.geocode({
@@ -37,7 +36,7 @@ sap.ui.define([
             },
 
             onMap: function(items) { // 지도
-                var mapOps = document.getElementById('__box1');
+                var mapOps = document.getElementById('application-zbapricemanager-display-component---Main--detailView--mapBox');
                 var x = items[0].x
                 var y = items[0].y
 
@@ -68,20 +67,31 @@ sap.ui.define([
             },
 
             onDelete: function() {
-                var oDataModel = this.getOwnerComponent().getModel()
-                
-                var oData = {
-                    Kunnr : this.getView().byId("kunnr_detail").getText(),
-                    Delet : 'X'
-                }
+                MessageBox.warning("정말 삭제하시겠습니까?", {
+                    actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+                    emphasizedAction: MessageBox.Action.OK,
+                    onClose: function (sAction) {
+                        if (sAction == 'OK') {
+                            var oDataModel = this.getOwnerComponent().getModel()
+                            
+                            var oData = {
+                                Kunnr : this.getView().byId("kunnr_detail").getText(),
+                                Delet : 'X'
+                            }
 
-                oDataModel.update(`/ZBA_SDT010Set('${oData.Kunnr}')`, oData, {
-                    success: function() {
-                        oDataModel.refresh(true)
-                        console.log("성공")
-                    },
-                    error: function() {}
-                })                
-            },
+                            oDataModel.update(`/ZBA_SDT010Set('${oData.Kunnr}')`, oData, {
+                                success: function() {
+                                    MessageToast.show("고객 정보가 삭제되었습니다.")
+                                    oDataModel.refresh(true)
+                                    
+                                },
+                                error: function() {
+                                    MessageToast.show("고객 정보 삭제 실패")
+                                }
+                            })                
+                        }
+                    }.bind(this)
+                })
+            }
         })
-    });
+    })

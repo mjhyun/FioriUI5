@@ -24,7 +24,7 @@
 
 				<!-- 두번째 -->
 				<Label text="사업자등록번호 (xxx-xx-xxxxx)" />
-				<Input value="{view>/Stceg}" liveChange="onCheckInput" type="Tel" maxLength="12" required="true"/>
+				<Input value="{view>/Stceg}" id="idStceg" liveChange="onCheckInput" type="Tel" maxLength="12" required="true"/>
 
 				<Label text="대표자명" />
 				<Input value="{view>/Frepre}" liveChange="onCheckInput" maxLength="4" required="true"/>
@@ -45,9 +45,9 @@
 
 				<!-- 세번째 -->
 				<Label text="이메일" />
-				<Input value="{view>/Cemail}" liveChange="onCheckInput" type="Email" required="true"/>
+				<Input value="{view>/Cemail}" id="idEmail" liveChange="onCheckInput" type="Email" required="true"/>
 				<Label text="전화번호" />
-				<Input value="{view>/Telp1}" liveChange="onCheckInput" maxLength="13" type="Tel" required="true"/>
+				<Input value="{view>/Telp1}" id="idTel" liveChange="onCheckInput" maxLength="13" type="Tel" required="true"/>
 				<Label text="주소" />
 				<SearchField id="searchInput" value="{view>/Adrnr}" search="onAddrSearch" placeholder="검색 버튼을 눌러주세요 by Daum Kakao"/>
             </f:SimpleForm>

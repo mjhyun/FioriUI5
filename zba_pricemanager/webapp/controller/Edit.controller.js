@@ -25,6 +25,7 @@ sap.ui.define([
             },
 
             onUpdate: function() {
+                var that = this;
                 MessageBox.warning("정말 수정하시겠습니까?", {
                     actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
                     emphasizedAction: MessageBox.Action.OK,
@@ -35,6 +36,7 @@ sap.ui.define([
                         var oData = {
                             Kunnr: this.getView().byId("kunnr").getValue(),
                             Kutxt: this.getView().byId("kutxt").getValue(),
+                            Stceg: this.getView().byId("stceg").getValue(),
                             Brsch: this.getView().byId("brsch").getSelectedItem().getKey(),
                             Frepre: this.getView().byId("frepre").getValue(),
                             Ablad: this.getView().byId("ablad").getValue(),
@@ -46,13 +48,16 @@ sap.ui.define([
 
                         oDataModel.update(`/ZBA_SDT010Set('${oData.Kunnr}')`, oData, {
                             success: function() {
+                                MessageToast.show("고객 정보가 업데이트 되었습니다.")
+                                that.getOwnerComponent().byId("Main").byId("flexibleColumnLayout").setLayout("TwoColumnsMidExpanded")
                                 oDataModel.refresh(true)
-                                console.log("성공")
                             },
-                            error: function() {}
+                            error: function() {
+                                MessageToast.show("고객 정보 수정 실패")
+                            }
                         })
                 }
-            }
+            }.bind(this)
         })},
 
             onCheckInput: function (oEvent) { // 유효성 검사
@@ -85,6 +90,25 @@ sap.ui.define([
                     var sValue = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{2})(\d{5})$/, `$1-$2-$3`);
                     oEvent.getSource().setValue(sValue)
                     }
+            },
+
+            onAddrSearch: function (oEvent) {
+                var addr = '';
+                var themeObj = { searchBgColor: "#0B65C8", queryTextColor: "#FFFFFF" } // 적용할 테마
+                if (oEvent.getParameters().searchButtonPressed) {
+                new daum.Postcode({
+                    theme: themeObj,
+                    oncomplete: function(data) { // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드
+                        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                            addr = data.roadAddress;
+                        } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                            addr = data.jibunAddress;
+                        }
+                        this.byId("searchInput").setValue(addr)                        
+                    }.bind(this)
+                    
+                }).open({ popupTitle: '고객사 주소 검색' });
+            }
             },
 
             onEditCancel: function(oEvent) { // 변경 취소 버튼

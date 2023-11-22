@@ -18,7 +18,7 @@
 					<Button type="Emphasized" text="변경" press="onUpdate" />
 					<Button type="Emphasized" text="변경 취소" press="onEditCancel" />
 				</Toolbar>
-			</f:toolbar>            
+			</f:toolbar>       
 			<f:content>
                 <!-- 첫번째 열 -->
 				<core:Title text="고객정보" />
@@ -61,7 +61,7 @@
 				<Label text="전화번호" />
 				<Input id="telp1" value="{Telp1}" type="Tel" liveChange="onCheckInput" required="true"/>
 				<Label text="주소" />
-				<Input id="adrnr" value="{Adrnr}" liveChange="onCheckInput" required="true"/>
+				<SearchField id="searchInput" value="{Adrnr}" search="onAddrSearch" placeholder="검색 버튼을 눌러주세요 by Daum Kakao"/>
 			</f:content>
 		</f:SimpleForm>
         </content>

@@ -107,8 +107,7 @@
 					</ObjectPageSubSection>
 
 					<ObjectPageSubSection title="지도">
-					<m:FlexBox height="400px">
-					</m:FlexBox>
+						<m:VBox id="mapBox" height="400px"/>				
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>

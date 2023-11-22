@@ -72,22 +72,22 @@ sap.ui.define([
                     emphasizedAction: MessageBox.Action.OK,
                     onClose: function (sAction) {
                         if (sAction == 'OK') {
-                var oDataModel = this.getOwnerComponent().getModel();
-                var oModel = sap.ui.getCore().getModel('view') // input 모델 가져옴
-                var oBody = oModel.getData()
+                            var oDataModel = this.getOwnerComponent().getModel();
+                            var oModel = sap.ui.getCore().getModel('view') // input 모델 가져옴
+                            var oBody = oModel.getData()
 
-                oDataModel.create('/ZBA_SDT010Set', oBody, {
-                    success: function() {
-                        oDataModel.refresh(true)
-                        console.log('성공이요');
-                    },
-                    error: function() {
-                        console.log('Error 발생');
-                    }
-                }) // '경로(EntitiySetName)', {생성할데이터}, {설정}
-                }
-            }
-        })},
+                            oDataModel.create('/ZBA_SDT010Set', oBody, {
+                                success: function() {
+                                    oDataModel.refresh(true)
+                                    MessageToast.show("새로운 고객정보가 추가되었습니다.")
+                                },
+                                error: function() {
+                                    MessageToast.show("추가 실패")
+                                }
+                            })
+                        }
+                    }.bind(this)
+            })},
 
             // input 필드 초기화
             onAfterOpen: function() {
@@ -110,7 +110,7 @@ sap.ui.define([
                 if(!inputValue){
                     oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
                     oEvent.getSource().setValueStateText("해당 필드는 비워둘 수 없습니다.")
-                } else if(inputId == "__input4"){ // 이메일
+                } else if(inputId == "idEmail"){ // 이메일
                     var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
                     if (!regExp.test(inputValue)){
                         oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
@@ -122,33 +122,18 @@ sap.ui.define([
                     oEvent.getSource().setValueState(sap.ui.core.ValueState.None)
                 }
 
-                if (inputId == "__input5"){ // 전화번호
+                if (inputId == "idTel"){ // 전화번호
                 var inputValue2 = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
                 oEvent.getSource().setValue(inputValue2)
                 }
 
-                if (inputId == "__input1"){ // 사업자번호
+                if (inputId == "idStceg"){ // 사업자번호
                     var sValue = inputValue.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{2})(\d{5})$/, `$1-$2-$3`);
                     oEvent.getSource().setValue(sValue)
                     }
 
 
             },
-
-            // onCheckInput: function (oEvent) {
-            //     var inputValue = oEvent.getSource().getValue()
-            //     var inputId = oEvent.getSource().getId()
-
-            //     if(!inputValue){
-            //         oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
-            //         oEvent.getSource().setValueStateText("해당 필드는 비워둘 수 없습니다.")
-            //     } else if (inputId == "__input0" && inputValue.length > 6){
-            //         oEvent.getSource().setValueState(sap.ui.core.ValueState.Error)
-            //         oEvent.getSource().setValueStateText("해당 필드는 6자리 까지만 입력가능합니다.")
-            //     } else {
-            //         oEvent.getSource().setValueState(sap.ui.core.ValueState.None)
-            //       }              
-            // },
             
             onAddrSearch: function () {
                 var addr = '';
