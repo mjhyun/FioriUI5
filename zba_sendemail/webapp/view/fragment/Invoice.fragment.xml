@@ -1,0 +1,128 @@
+<c:FragmentDefinition 
+    xmlns:c="sap.ui.core" 
+    xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+
+    <Dialog id="invoiceDialog" title="대금청구서" titleAlignment="Center" resizable="true"
+        contentHeight="80%"
+        contentWidth="50%">
+        <Page showHeader="false">
+	    <uxap:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+		<uxap:headerContent>
+						<VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+							<Label text="청구문서번호"/>
+							<Text id="dPaynr"/>
+						</VBox>
+						<VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+							<Label text="담당자"/>
+							<Text id="dPernr"/>
+						</VBox>
+						<VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+							<Label text="청구날짜"/>
+							<Text id="dInvdt"/> 
+						</VBox>
+						<VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+							<Label text="총 금액"/>
+                            <ObjectNumber class="sapMObjectNumberLarge" id="dCharge"/>
+						</VBox>
+                        <!-- <ObjectStatus state="Success" icon="sap-icon://employee-approvals" text="발송 가능"/> -->
+		</uxap:headerContent>
+		<uxap:sections>
+			<uxap:ObjectPageSection titleUppercase="false" title="정보">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+                        	<f:SimpleForm editable="false" layout="ColumnLayout" columnsM="2" columnsL="3">
+
+                            <c:Title text="공급자" />
+                            <Label text="사업자등록번호"/>
+                            <Text text="714-52-14361"/>
+
+                            <Label text="상호"/>
+                            <Text text="㈜피유리 (1000)"/>
+
+                            <c:Title text="공급받는자" />
+                            <Label text="사업자등록번호"/>
+                            <Text id="dStceg" />
+
+                            <Label text="상호"/>
+                            <Text id="dKutxt" />
+
+                            <c:Title text="날짜" />
+                            <Label text="주문 일자"/>
+                            <Text id="dOddat"/>
+
+                            <Label text="납부 기한"/>
+                            <Text id="dDate"/>
+
+                        </f:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+			<uxap:ObjectPageSection titleUppercase="false" title="상세 목록">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+                                <Table id="iditemTable"
+                                    inset="false"
+                                    items="{item>/results}"
+                                    class="sapFDynamicPageAlignContent"
+                                    width="auto">
+                            <columns>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="제품번호" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="제품내용" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="제품 금액" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="주문 수량" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="주문 금액" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{item>Matnr}" />
+                                        <Text text="{item>Matnm}" />
+                                        <ObjectNumber number="{parts: ['item>Sapri', 'item>Waers'],
+                                                        type: 'sap.ui.model.type.Currency',
+                                                        formatOptions: {
+                                                            showMeasure: false
+                                                        }
+                                                    }"
+                                                unit="{item>Waers}"/>
+                                        <ObjectNumber number="{item>Auqua}" unit="{item>Meins}" />
+                                        <ObjectNumber number="{parts: ['item>Auamo', 'item>Waers'],
+                                                        type: 'sap.ui.model.type.Currency',
+                                                        formatOptions: {
+                                                            showMeasure: false
+                                                        }
+                                                    }"
+                                                unit="{item>Waers}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
+            </Page>
+            <beginButton>
+                <Button id="sendBtn" text="이메일 발송" press="onSend"/>
+            </beginButton>
+            <endButton>
+                <Button text="창 닫기" press="onClose" />
+            </endButton>
+    </Dialog>
+</c:FragmentDefinition>

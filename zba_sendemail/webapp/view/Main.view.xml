@@ -1,0 +1,80 @@
+<mvc:View controllerName="zbasendemail.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:c="sap.ui.core" 
+    xmlns="sap.m">
+    <Page>
+	<Table
+		id="invoiceList"
+		class="sapFDynamicPageAlignContent"
+		width="auto"
+		items="{
+				path : '/ZBA_SDT100Set',
+				sorter : {
+					path : 'Echeck',
+					group : '.echeckGroup'
+				}
+			}">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="대금청구서 목록" />
+				<ToolbarSpacer />
+				<!-- <SearchField
+					width="50%"
+					search=".onFilterInvoices"/> -->
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column hAlign="Center" width="110px">
+				<Text text="메일 발송 여부" />
+			</Column>
+			<Column hAlign="Center" width="110px">
+				<Text text="청구문서번호" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="tablet">
+				<Text text="고객정보" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="tablet">
+				<Text text="청구금액" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="tablet">
+				<Text text="청구날짜" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="tablet">
+				<Text text="담당자" />
+			</Column>
+		</columns>
+
+		<items>
+			<ColumnListItem
+				type="Navigation"
+				press=".onPress">
+				<cells>
+					<c:Icon color="{= ${Echeck} === 'N' ? '#FF0000' : '#00C518'}" src="{= ${Echeck} === 'N' ? 'sap-icon://error' : 'sap-icon://status-completed' }" />
+					<ObjectIdentifier title="{Paynr}" />
+					<ObjectIdentifier title="{Kutxt}" text="{Cemail}" />
+					<ObjectNumber 
+						number="{
+								parts: [
+									'Charge',
+									'Waers'
+								],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {
+									showMeasure: false
+								}
+							}"
+						unit="{Waers}"/>
+					<Text text="{
+							path: 'Invdt',
+							type: 'sap.ui.model.type.Date',
+							formatOptions: {
+								pattern : 'yyyy.MM.dd'
+								}
+							}" wrapping="false" /> 
+					<Text text="{Pernr}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </Page>
+</mvc:View>

@@ -70,9 +70,14 @@ sap.ui.define([
                 var oDataModel = this.getOwnerComponent().getModel();
                 var oModel = sap.ui.getCore().getModel('view') // input 모델 가져옴
                 var oBody = oModel.getData()
-                debugger;
-                if (Object.values(oBody).length == 0) {
+                if (Object.values(oBody).length < 9) {
                     MessageToast.show("모든 필드를 채워주세요")
+                    for(var i=0; i<Object.values(oBody).length; i++) {
+                        if (Object.values(oBody)[i] == '') {
+                            MessageToast.show("모든 필드를 채워주세요")
+                            return 0;
+                        }
+                    }
                 } else {
                 MessageBox.warning("정말 추가하시겠습니까?", {
                     actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
