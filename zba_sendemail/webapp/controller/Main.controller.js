@@ -99,7 +99,7 @@ sap.ui.define([
 
                 // 아이템 가져오기
                 for(var i=0; i<sap.ui.getCore().byId("iditemTable").getBinding("items").getLength(); i++){
-                    eModel['Matnm'+i] = document.getElementById(`__text26-iditemTable-${i}`).innerText
+                    eModel['Matnm'+i] = document.getElementById(`__text21-iditemTable-${i}`).innerText
                     eModel['Sapri'+i] = document.getElementById(`__number1-iditemTable-${i}-number`).innerText
                     eModel['Auqua'+i] = document.getElementById(`__number2-iditemTable-${i}-number`).innerText
                     eModel['Auamo'+i] = document.getElementById(`__number3-iditemTable-${i}-number`).innerText

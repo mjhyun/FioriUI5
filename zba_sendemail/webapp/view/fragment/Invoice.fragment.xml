@@ -5,7 +5,7 @@
 
     <Dialog id="invoiceDialog" title="대금청구서" titleAlignment="Center" resizable="true"
         contentHeight="80%"
-        contentWidth="50%">
+        contentWidth="75%">
         <Page showHeader="false">
 	    <uxap:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
 		<uxap:headerContent>
