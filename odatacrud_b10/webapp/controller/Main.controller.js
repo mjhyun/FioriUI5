@@ -84,11 +84,11 @@ sap.ui.define([
 
             // DELETE : /EntitySetName('keyValue')
             onDelete: function(){
-                var oTable = this.byId("idMemberTable")
-                var sValue = oTable.getSelectedContexts()[0].getObject().MB_ID
+                var oTable = this.byId("idTable")
+                var sValue = oTable.getSelectedContexts()[0].getObject().CustId
                 var oDataModel = this.getOwnerComponent().getModel();
 
-                var sPath = oDataModel.createKey("/MemberSet", {
+                var sPath = oDataModel.createKey("/ZBB_SDT030", {
                     MB_ID : sValue
                 })
 

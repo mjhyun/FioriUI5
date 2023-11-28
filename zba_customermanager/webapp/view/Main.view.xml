@@ -1,0 +1,64 @@
+<mvc:View xmlns:rowmodes="sap.ui.table.rowmodes" controllerName="zbacustomermanager.controller.Main"
+    xmlns:c="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:f="sap.f"
+    xmlns:u="sap.ui.unified"
+	xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:layout="sap.ui.layout">
+		<f:FlexibleColumnLayout id="flexibleColumnLayout" layout="TwoColumnsMidExpanded" backgroundDesign="Solid">
+		<f:beginColumnPages>
+					<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="고객사 목록"/> <!-- 리스트개수 추가하기	-->
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+
+		<!-- DynamicPage Content -->
+		<f:content>
+			<Table
+				sticky="HeaderToolbar"
+				id="CustomerTable"
+				mode="SingleSelectMaster"
+				itemPress="onListItemPress"
+				inset="false"
+				items="{/ZBA_SDT010Set}"
+				class="sapFDynamicPageAlignContent"
+				width="auto">
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField id="searchInput" liveChange="onSearch" width="17.5rem"/>
+						<Button text="추가" type="Emphasized" press="onAdd"/>
+						<!-- <OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/> -->
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="고객사 목록" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{Kutxt}" text="{Kunnr}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+		</f:DynamicPage>
+		</f:beginColumnPages>
+		<f:midColumnPages>
+			<mvc:XMLView id="detailView" viewName="zbacustomermanager.view.Detail"/>
+		</f:midColumnPages>
+		<f:endColumnPages>
+			<mvc:XMLView id="EditView" viewName="zbacustomermanager.view.Edit"/>
+		</f:endColumnPages>
+	</f:FlexibleColumnLayout>
+
+</mvc:View>

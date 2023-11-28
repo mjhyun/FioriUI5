@@ -98,11 +98,12 @@ sap.ui.define([
                 }
 
                 // 아이템 가져오기
+                debugger;
                 for(var i=0; i<sap.ui.getCore().byId("iditemTable").getBinding("items").getLength(); i++){
-                    eModel['Matnm'+i] = document.getElementById(`__text21-iditemTable-${i}`).innerText
-                    eModel['Sapri'+i] = document.getElementById(`__number1-iditemTable-${i}-number`).innerText
-                    eModel['Auqua'+i] = document.getElementById(`__number2-iditemTable-${i}-number`).innerText
-                    eModel['Auamo'+i] = document.getElementById(`__number3-iditemTable-${i}-number`).innerText
+                    eModel['Matnm'+i] = document.getElementById(`matnm-iditemTable-${i}`).innerText
+                    eModel['Sapri'+i] = document.getElementById(`sapri-iditemTable-${i}-number`).innerText
+                    eModel['Auqua'+i] = document.getElementById(`auqua-iditemTable-${i}-number`).innerText
+                    eModel['Auamo'+i] = document.getElementById(`auamo-iditemTable-${i}-number`).innerText
                 }
 
                 // 메일 발송 상태 업데이트

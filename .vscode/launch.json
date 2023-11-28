@@ -1,11 +1,11 @@
 {
     "configurations": [
         {
-            "name": "Start zba_pricemanager",
+            "name": "Start zba_customermanager",
             "type": "node",
             "request": "launch",
             "runtimeExecutable": "npx",
-            "cwd": "${workspaceFolder}/zba_pricemanager",
+            "cwd": "${workspaceFolder}/zba_customermanager",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
             },
@@ -15,7 +15,7 @@
             ],
             "args": [
                 "--open",
-                "test/flpSandbox.html#zbapricemanager-display"
+                "test/flpSandbox.html#zbacustomermanager-display"
             ],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
@@ -27,10 +27,10 @@
             }
         },
         {
-            "name": "Start zba_pricemanager Mock",
+            "name": "Start zba_customermanager Mock",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/zba_pricemanager",
+            "cwd": "${workspaceFolder}/zba_customermanager",
             "runtimeExecutable": "npx",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
@@ -43,7 +43,7 @@
                 "--config",
                 "./ui5-mock.yaml",
                 "--open",
-                "test/flpSandbox.html#zbapricemanager-display"
+                "test/flpSandbox.html#zbacustomermanager-display"
             ],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
@@ -54,10 +54,10 @@
             }
         },
         {
-            "name": "Start zba_pricemanager Local",
+            "name": "Start zba_customermanager Local",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/zba_pricemanager",
+            "cwd": "${workspaceFolder}/zba_customermanager",
             "runtimeExecutable": "npx",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
@@ -70,7 +70,7 @@
                 "--config",
                 "./ui5-local.yaml",
                 "--open",
-                "test/flpSandbox.html#zbapricemanager-display"
+                "test/flpSandbox.html#zbacustomermanager-display"
             ],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
@@ -81,11 +81,11 @@
             }
         },
         {
-            "name": "Start zba_pricemanager",
+            "name": "Start zba_customermanager",
             "type": "node",
             "request": "launch",
             "runtimeExecutable": "npx",
-            "cwd": "${workspaceFolder}/zba_pricemanager",
+            "cwd": "${workspaceFolder}/zba_customermanager",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
             },
@@ -95,7 +95,7 @@
             ],
             "args": [
                 "--open",
-                "test/flpSandbox.html#zbapricemanager-display"
+                "test/flpSandbox.html#zbacustomermanager-display"
             ],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
@@ -107,10 +107,10 @@
             }
         },
         {
-            "name": "Start zba_pricemanager Mock",
+            "name": "Start zba_customermanager Mock",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/zba_pricemanager",
+            "cwd": "${workspaceFolder}/zba_customermanager",
             "runtimeExecutable": "npx",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
@@ -123,7 +123,7 @@
                 "--config",
                 "./ui5-mock.yaml",
                 "--open",
-                "test/flpSandbox.html#zbapricemanager-display"
+                "test/flpSandbox.html#zbacustomermanager-display"
             ],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
@@ -134,10 +134,10 @@
             }
         },
         {
-            "name": "Start zba_pricemanager Local",
+            "name": "Start zba_customermanager Local",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/zba_pricemanager",
+            "cwd": "${workspaceFolder}/zba_customermanager",
             "runtimeExecutable": "npx",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
@@ -150,7 +150,7 @@
                 "--config",
                 "./ui5-local.yaml",
                 "--open",
-                "test/flpSandbox.html#zbapricemanager-display"
+                "test/flpSandbox.html#zbacustomermanager-display"
             ],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",

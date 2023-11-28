@@ -1,0 +1,70 @@
+<mvc:View displayBlock="true" controllerName="zbacustomermanager.controller.Edit" height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page>
+        <content>
+        		<f:SimpleForm id="SimpleFormChangeColumn_threeGroups234"
+			editable="true"
+			layout="ColumnLayout"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+			>
+			<f:toolbar>
+				<Toolbar id="TB1">
+					<Title id="toolbarTitleid" text="고객 정보 변경"/>
+					<ToolbarSpacer />
+					<Button type="Emphasized" text="변경" press="onUpdate" />
+					<Button type="Emphasized" text="변경 취소" press="onEditCancel" />
+				</Toolbar>
+			</f:toolbar>       
+			<f:content>
+                <!-- 첫번째 열 -->
+				<core:Title text="고객정보" />
+				<Label text="고객번호" />
+				<Input id="kunnr" value="{Kunnr}" liveChange="onCheckInput" enabled="false" required="true" />
+				<Label text="고객명" />
+				<Input id="kutxt" value="{Kutxt}" liveChange="onCheckInput" maxLength="8" required="true"/>
+				<Label text="업종" />
+				<Select id="brsch" selectedKey="{Brsch}" required="true">
+					<items>
+						<core:Item text="자동차" key="A"/>
+						<core:Item text="건설" key="B"/>
+					</items>
+				</Select>  
+
+				<!-- 두번째 -->
+				<Label text="사업자등록번호" />
+				<Input id="stceg" value="{Stceg}" type="Tel" maxLength="12" liveChange="onCheckInput" required="true" />
+
+				<Label text="대표자명" />
+				<Input id="frepre" value="{Frepre}" liveChange="onCheckInput" maxLength="4" required="true"/>
+
+				<Label text="출하지점" />
+				<Input id="ablad" value="{Ablad}" liveChange="onCheckInput" required="true"/>
+
+				<Label text="여신등급" />
+				<Select id="crert" selectedKey="{Crert}" required="true">
+					<items>
+						<core:Item text="A+" key="A+"/>
+                        <core:Item text="A" key="A"/>
+                        <core:Item text="B+" key="B+"/>
+                        <core:Item text="B" key="B"/>
+                        <core:Item text="C" key="C"/>
+					</items>
+				</Select>
+
+				<!-- 세번째 -->
+				<Label text="이메일" />
+				<Input id="cemail" value="{Cemail}" type="Email" liveChange="onCheckInput" required="true"/>
+				<Label text="전화번호" />
+				<Input id="telp1" value="{Telp1}" type="Tel" liveChange="onCheckInput" required="true"/>
+				<Label text="주소" />
+				<SearchField id="searchInput" value="{Adrnr}" search="onAddrSearch" placeholder="검색 버튼을 눌러주세요 by Daum Kakao"/>
+			</f:content>
+		</f:SimpleForm>
+        </content>
+    </Page>
+
+</mvc:View>

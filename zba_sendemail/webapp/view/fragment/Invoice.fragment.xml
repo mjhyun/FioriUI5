@@ -91,16 +91,16 @@
                                 <ColumnListItem>
                                     <cells>
                                         <Text text="{item>Matnr}" />
-                                        <Text text="{item>Matnm}" />
-                                        <ObjectNumber number="{parts: ['item>Sapri', 'item>Waers'],
+                                        <Text id="matnm" text="{item>Matnm}" />
+                                        <ObjectNumber id="sapri" number="{parts: ['item>Sapri', 'item>Waers'],
                                                         type: 'sap.ui.model.type.Currency',
                                                         formatOptions: {
                                                             showMeasure: false
                                                         }
                                                     }"
                                                 unit="{item>Waers}"/>
-                                        <ObjectNumber number="{item>Auqua}" unit="{item>Meins}" />
-                                        <ObjectNumber number="{parts: ['item>Auamo', 'item>Waers'],
+                                        <ObjectNumber id="auqua" number="{item>Auqua}" unit="{item>Meins}" />
+                                        <ObjectNumber id="auamo" number="{parts: ['item>Auamo', 'item>Waers'],
                                                         type: 'sap.ui.model.type.Currency',
                                                         formatOptions: {
                                                             showMeasure: false
