@@ -4,6 +4,7 @@
     xmlns="sap.m">
     <Page>
 	<Table
+		noDataText="대금청구문서가 없습니다."
 		id="invoiceList"
 		class="sapFDynamicPageAlignContent"
 		width="auto"
@@ -16,7 +17,7 @@
 			}">
 		<headerToolbar>
 			<Toolbar>
-				<Title text="대금청구서 목록" />
+				<Title id="idListTitle" text="대금청구서 목록" />
 				<ToolbarSpacer />
 				<!-- <SearchField
 					width="50%"

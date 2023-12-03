@@ -73,9 +73,9 @@ sap.ui.define([
                 sap.ui.getCore().byId("dOddat").setText(sap.ui.core.format.DateFormat.getDateTimeInstance({
                     pattern : 'yyyy.MM.dd'}).format(sValue.Oddat))
 
-                var nDate = new Date(sValue.Oddat.setDate(sValue.Oddat.getDate() + 60))
+
                 sap.ui.getCore().byId("dDate").setText(sap.ui.core.format.DateFormat.getDateTimeInstance({
-                    pattern : 'yyyy.MM.dd'}).format(nDate))                    
+                    pattern : 'yyyy.MM.dd'}).format(sValue.Paydt))                    
 
                 sap.ui.getCore().byId("dStceg").setText(sValue.Stceg)
                 sap.ui.getCore().byId("dKutxt").setText(sValue.Kutxt)
@@ -98,7 +98,6 @@ sap.ui.define([
                 }
 
                 // 아이템 가져오기
-                debugger;
                 for(var i=0; i<sap.ui.getCore().byId("iditemTable").getBinding("items").getLength(); i++){
                     eModel['Matnm'+i] = document.getElementById(`matnm-iditemTable-${i}`).innerText
                     eModel['Sapri'+i] = document.getElementById(`sapri-iditemTable-${i}-number`).innerText
@@ -109,11 +108,11 @@ sap.ui.define([
                 // 메일 발송 상태 업데이트
                 var uData = {Echeck: 'Y'}
 
-                MessageBox.warning("대금청구서를 발송하시겠습니까?", {
-                    actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
-                    emphasizedAction: MessageBox.Action.OK,
+                MessageBox.confirm("대금청구서를 발송하시겠습니까?", {
+                    actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+                    emphasizedAction: MessageBox.Action.YES,
                     onClose: function (sAction) {
-                        if (sAction == 'OK') {
+                        if (sAction == 'YES') {
                             sap.ui.getCore().byId("sendBtn").setText("발송 중...")
                             emailjs.send("service_k702msg","template_7n4g8nj",eModel,"xxw-vjcdFzTijeF9J")
                             .then(function(response) {

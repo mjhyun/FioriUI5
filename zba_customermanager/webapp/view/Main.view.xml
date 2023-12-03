@@ -14,7 +14,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="고객사 목록"/> <!-- 리스트개수 추가하기	-->
+					<Title id="titleCss" text="고객사 목록"/> <!-- 리스트개수 추가하기	-->
 				</f:heading>
 			</f:DynamicPageTitle>
 		</f:title>
@@ -32,7 +32,7 @@
 				width="auto">
 				<headerToolbar>
 					<OverflowToolbar>
-						<SearchField id="searchInput" liveChange="onSearch" width="17.5rem"/>
+						<SearchField id="searchInput" liveChange="onSearch" width="12rem"/>
 						<Button text="추가" type="Emphasized" press="onAdd"/>
 						<!-- <OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/> -->
 					</OverflowToolbar>

@@ -1,24 +1,37 @@
 /* Enter your custom styles here */
-.sapUxAPObjectPageSection .sapUxAPObjectPageSectionContainer .sapUxAPObjectPageSubSection .sapUxAPBlockContainer {
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#application-zbasendemail-display-component---Main--idListTitle {
+    text-align: center !important;
+}
+
+
+#ObjectPageLayout .sapUxAPObjectPageSection .sapUxAPObjectPageSectionContainer .sapUxAPObjectPageSubSection .sapUxAPBlockContainer {
     background: unset !important; 
 }
-.sapMBarPH {
+#invoiceDialog .sapMBarPH {
     background-color: #bcd2e6 !important;
 }
 
-.sapUxAPAnchorBar.sapMTB {
+#ObjectPageLayout .sapUxAPAnchorBar.sapMTB {
+    font-family: 'GangwonEduPowerExtraBoldA' !important;
     background-color: #eff4f9 !important;
 }
 
-.sapMTableTH {
+#ObjectPageLayout .sapMTableTH {
     background-color: #f5f6f7 !important;
     border-top: 2px solid #e5e5e5 !important;
 }
 
-.sapUiSimpleForm .sapUiFormCL.sapUiFormBackgrTranslucent {
+#ObjectPageLayout .sapUiSimpleForm .sapUiFormCL.sapUiFormBackgrTranslucent {
     background-color: unset !important;
 }
 
-.sapUxAPObjectPageHeaderContentDesign-Light {
+#ObjectPageLayout .sapUxAPObjectPageHeaderContentDesign-Light {
     background-color: #eff4f9 !important;
 }
